@@ -29,20 +29,16 @@
         v-for="tile in plugin.previewTiles"
         :key="tile.label"
         class="plugin-preview-card"
-        :class="{ 'plugin-preview-card-warning': tile.overlayImage }"
+        :class="{ 'plugin-preview-card-warning warning-pulse': tile.overlayImage }"
       >
         <div class="plugin-preview-visual">
-          <img :alt="tile.label" :src="tile.image" class="plugin-preview-tile" />
+          <img :alt="tile.label" :src="tile.overlayImage ?? tile.image" class="plugin-preview-tile" />
           <div
             v-if="tile.overlayImage"
-            class="plugin-preview-alert warning-flash"
+            class="plugin-preview-alert-copy"
           >
-            <img
-              alt=""
-              :src="tile.overlayImage"
-              class="plugin-preview-tile"
-            />
-            <div class="plugin-preview-alert-copy">
+            <span class="alert-beacon" aria-hidden="true">🚨</span>
+            <div>
               <strong>{{ tile.label }}</strong>
               <span>{{ tile.alertDetail ?? "Warning" }}</span>
             </div>

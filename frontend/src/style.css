@@ -15,16 +15,33 @@
   --shadow-panel: 0 18px 42px rgba(0, 0, 0, 0.22);
 }
 
-@keyframes warning-blink {
+@keyframes warning-pulse {
   0%,
-  32%,
   100% {
-    opacity: 0;
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 132, 122, 0.2),
+      0 8px 14px rgba(0, 0, 0, 0.22),
+      0 0 0 rgba(255, 109, 95, 0);
   }
 
-  10%,
-  22% {
+  50% {
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 169, 160, 0.62),
+      0 12px 20px rgba(0, 0, 0, 0.3),
+      0 0 22px rgba(255, 109, 95, 0.3);
+  }
+}
+
+@keyframes beacon-blink {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(0.96);
+  }
+
+  50% {
     opacity: 1;
+    transform: scale(1.06);
   }
 }
 
@@ -281,24 +298,31 @@ summary {
     background: rgba(255, 255, 255, 0.02);
   }
 
-  .plugin-preview-alert {
-    @apply absolute inset-0;
-  }
-
   .plugin-preview-alert-copy,
   .streamdeck-alert-copy {
-    @apply absolute inset-x-0 bottom-3 px-2 text-center text-white;
-    text-shadow: 0 4px 14px rgba(0, 0, 0, 0.38);
+    @apply absolute inset-x-2 bottom-2 flex items-center gap-2 rounded-[14px] px-2.5 py-2 text-left text-white;
+    background: rgba(6, 10, 14, 0.82);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+      0 10px 24px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(8px);
   }
 
   .plugin-preview-alert-copy strong,
   .streamdeck-alert-copy strong {
-    @apply block text-[0.72rem] font-semibold uppercase tracking-[0.22em];
+    @apply block text-[0.66rem] font-semibold uppercase tracking-[0.2em];
   }
 
   .plugin-preview-alert-copy span,
   .streamdeck-alert-copy span {
-    @apply block text-[0.56rem] font-medium uppercase tracking-[0.18em] text-white/82;
+    @apply block text-[0.54rem] font-medium uppercase tracking-[0.16em] text-white/74;
+  }
+
+  .alert-beacon {
+    @apply inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm;
+    background: rgba(255, 109, 95, 0.18);
+    box-shadow: inset 0 0 0 1px rgba(255, 153, 144, 0.3);
+    animation: beacon-blink 1.4s ease-in-out infinite;
   }
 
   .plugin-preview-tile {
@@ -307,9 +331,8 @@ summary {
     object-fit: contain;
   }
 
-  .warning-flash {
-    @apply absolute inset-auto;
-    animation: warning-blink 2s linear infinite;
+  .warning-pulse {
+    animation: warning-pulse 1.8s ease-in-out infinite;
   }
 
   .plugin-preview-label {
@@ -385,10 +408,6 @@ summary {
     @apply h-full w-full object-cover;
   }
 
-  .streamdeck-alert-overlay {
-    @apply absolute inset-0;
-  }
-
   .sales-grid {
     @apply grid gap-4 md:grid-cols-2;
   }
@@ -408,13 +427,28 @@ summary {
     @apply text-xl font-medium tracking-[-0.04em] text-white;
   }
 
-  .info-list,
-  .step-list {
-    @apply mt-4 space-y-3 text-sm leading-7 text-[var(--text-secondary)];
+  .info-card-grid {
+    @apply mt-4 grid gap-3 md:grid-cols-2;
   }
 
-  .step-list {
-    @apply list-decimal pl-5;
+  .info-card {
+    @apply grid grid-cols-[auto,1fr] items-start gap-3 rounded-[18px] p-4;
+    background: rgba(255, 255, 255, 0.035);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .info-card-emoji {
+    @apply inline-flex h-11 w-11 items-center justify-center rounded-[14px] text-xl;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
+
+  .info-card-title {
+    @apply block text-[0.96rem] font-semibold text-white;
+  }
+
+  .info-card-copy {
+    @apply mt-1 text-sm leading-6 text-[var(--text-secondary)];
   }
 
   .comparison-intro {

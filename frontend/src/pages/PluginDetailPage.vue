@@ -62,20 +62,20 @@
                   v-for="tile in board.tiles"
                   :key="`${board.title}-${tile.label}`"
                   class="streamdeck-key"
-                  :class="{ 'streamdeck-key-warning': tile.overlayImage }"
+                  :class="{ 'streamdeck-key-warning warning-pulse': tile.overlayImage }"
                 >
                   <div class="streamdeck-key-visual">
-                    <img :alt="tile.label" :src="tile.image" class="streamdeck-key-image" />
+                    <img
+                      :alt="tile.label"
+                      :src="tile.overlayImage ?? tile.image"
+                      class="streamdeck-key-image"
+                    />
                     <div
                       v-if="tile.overlayImage"
-                      class="streamdeck-alert-overlay warning-flash"
+                      class="streamdeck-alert-copy"
                     >
-                      <img
-                        alt=""
-                        :src="tile.overlayImage"
-                        class="streamdeck-key-image"
-                      />
-                      <div class="streamdeck-alert-copy">
+                      <span class="alert-beacon" aria-hidden="true">🚨</span>
+                      <div>
                         <strong>{{ tile.label }}</strong>
                         <span>{{ tile.alertDetail ?? "Warning" }}</span>
                       </div>
@@ -92,20 +92,36 @@
     <section class="sales-grid">
       <article class="info-panel">
         <h2 class="panel-title">What it does</h2>
-        <ul class="info-list">
-          <li v-for="item in plugin.salesBullets" :key="item">
-            {{ item }}
-          </li>
-        </ul>
+        <div class="info-card-grid">
+          <article
+            v-for="item in plugin.salesHighlights"
+            :key="item.title"
+            class="info-card"
+          >
+            <span class="info-card-emoji" aria-hidden="true">{{ item.emoji }}</span>
+            <div>
+              <strong class="info-card-title">{{ item.title }}</strong>
+              <p class="info-card-copy">{{ item.copy }}</p>
+            </div>
+          </article>
+        </div>
       </article>
 
       <article class="info-panel">
         <h2 class="panel-title">Setup</h2>
-        <ol class="step-list">
-          <li v-for="step in plugin.salesSteps" :key="step">
-            {{ step }}
-          </li>
-        </ol>
+        <div class="info-card-grid">
+          <article
+            v-for="step in plugin.setupHighlights"
+            :key="step.title"
+            class="info-card"
+          >
+            <span class="info-card-emoji" aria-hidden="true">{{ step.emoji }}</span>
+            <div>
+              <strong class="info-card-title">{{ step.title }}</strong>
+              <p class="info-card-copy">{{ step.copy }}</p>
+            </div>
+          </article>
+        </div>
       </article>
 
       <article class="info-panel comparison-panel">

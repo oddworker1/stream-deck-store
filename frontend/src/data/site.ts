@@ -11,6 +11,12 @@ export type PreviewTile = {
   overlayImage?: string;
 };
 
+export type InfoCard = {
+  copy: string;
+  emoji: string;
+  title: string;
+};
+
 export type ComparisonRow = {
   feature: string;
   free: string;
@@ -43,10 +49,10 @@ export type PluginRecord = {
   name: string;
   plusIcon: string;
   previewTiles: PreviewTile[];
-  salesBullets: string[];
   salesCtas: SupportLink[];
+  salesHighlights: InfoCard[];
   salesIntro: string;
-  salesSteps: string[];
+  setupHighlights: InfoCard[];
   showcaseBoards: ShowcaseBoard[];
 };
 
@@ -204,11 +210,27 @@ export const homeyPlugin: PluginRecord = {
       label: "Dim target"
     }
   ],
-  salesBullets: [
-    "Show live values on Stream Deck keys",
-    "Control devices with toggles or exact target writes",
-    "Build warning tiles for values that should stand out",
-    "Keep Homey dashboards readable instead of crowded"
+  salesHighlights: [
+    {
+      copy: "See power, climate, door, and status values directly on the key.",
+      emoji: "📟",
+      title: "Live tiles"
+    },
+    {
+      copy: "Toggle a device, run a flow, or send an exact value without opening Homey first.",
+      emoji: "🎛️",
+      title: "Quick control"
+    },
+    {
+      copy: "Turn important states into clear alarm tiles that grab your eye when something changes.",
+      emoji: "🚨",
+      title: "Alerts that stand out"
+    },
+    {
+      copy: "Launch room or scene folders so the deck stays useful instead of crowded.",
+      emoji: "🗂️",
+      title: "Room launchers"
+    }
   ],
   salesCtas: [
     {
@@ -218,11 +240,27 @@ export const homeyPlugin: PluginRecord = {
   ],
   salesIntro:
     "A focused Stream Deck plugin for Homey Pro. Use it for live values, clean control tiles, warnings, and room launchers without turning the support site into a marketplace wall.",
-  salesSteps: [
-    "Connect Homey Pro with a local address and Personal Access Token.",
-    "Choose the device and capability you want on the key.",
-    "Pick toggle or exact state writes for the behavior.",
-    "Refine the tile with title text, units, and warning rules."
+  setupHighlights: [
+    {
+      copy: "Add your local Homey address and a Personal Access Token.",
+      emoji: "🔌",
+      title: "1. Connect Homey"
+    },
+    {
+      copy: "Pick the device and capability you want to show or control.",
+      emoji: "🎯",
+      title: "2. Choose the tile"
+    },
+    {
+      copy: "Decide if the key should display, toggle, or set an exact target value.",
+      emoji: "⚙️",
+      title: "3. Choose behavior"
+    },
+    {
+      copy: "Finish with title text, units, icons, colors, and warning rules.",
+      emoji: "✨",
+      title: "4. Make it yours"
+    }
   ],
   showcaseBoards: [
     {
