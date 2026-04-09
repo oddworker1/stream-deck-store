@@ -22,7 +22,7 @@
           <h1 class="max-w-3xl text-5xl font-medium leading-[0.93] tracking-[-0.06em] text-white md:text-7xl">
             {{ plugin.name }}
           </h1>
-          <p class="max-w-2xl text-base leading-8 text-[var(--text-secondary)] md:text-lg">
+          <p class="max-w-xl text-base leading-8 text-[var(--text-secondary)] md:text-lg">
             {{ plugin.detailSummary }}
           </p>
         </div>
@@ -48,11 +48,12 @@
         </div>
       </div>
 
-      <div class="relative min-h-[430px] overflow-hidden rounded-[28px] bg-[radial-gradient(circle_at_18%_18%,rgba(0,229,255,0.14),transparent_38%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]">
-        <img alt="" class="absolute left-8 top-10 h-48 w-48 -rotate-[10deg] drop-shadow-[0_26px_40px_rgba(0,0,0,0.38)]" src="/assets/homey/generated/homey-energy-live.svg" />
-        <img alt="" class="absolute right-10 top-8 h-44 w-44 rotate-[9deg] drop-shadow-[0_26px_40px_rgba(0,0,0,0.38)]" src="/assets/homey/generated/homey-solar-export.svg" />
-        <img alt="" class="absolute left-40 top-48 h-40 w-40 rotate-[7deg] drop-shadow-[0_24px_38px_rgba(0,0,0,0.38)]" src="/assets/homey/generated/homey-energy-warning-over.svg" />
-        <img alt="" class="absolute bottom-8 right-14 h-40 w-40 -rotate-[8deg] drop-shadow-[0_24px_38px_rgba(0,0,0,0.38)]" src="/assets/homey/generated/homey-room-launcher.svg" />
+      <div class="relative min-h-[430px] overflow-hidden rounded-[28px] bg-[radial-gradient(circle_at_18%_18%,rgba(0,229,255,0.14),transparent_38%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] shadow-[var(--shadow-panel)]">
+        <div class="showcase-glow showcase-glow-strong" />
+        <img alt="" class="floating-tile absolute left-8 top-10 h-48 w-48" src="/assets/homey/generated/homey-energy-live.svg" style="--tile-delay:-1.4s; --tile-duration:7.1s; --tile-rot:-10deg;" />
+        <img alt="" class="floating-tile absolute right-10 top-8 h-44 w-44" src="/assets/homey/generated/homey-solar-export.svg" style="--tile-delay:-2.4s; --tile-duration:8.2s; --tile-rot:9deg;" />
+        <img alt="" class="floating-tile absolute left-40 top-48 h-40 w-40" src="/assets/homey/generated/homey-energy-warning-over.svg" style="--tile-delay:-0.6s; --tile-duration:6.7s; --tile-rot:7deg;" />
+        <img alt="" class="floating-tile absolute bottom-8 right-14 h-40 w-40" src="/assets/homey/generated/homey-room-launcher.svg" style="--tile-delay:-3.1s; --tile-duration:7.8s; --tile-rot:-8deg;" />
       </div>
     </section>
 
@@ -70,33 +71,54 @@
         </div>
 
         <section id="visuals" class="content-section">
-          <SectionHeader eyebrow="Visual previews" title="Rendered from the actual plugin" />
+          <SectionHeader
+            eyebrow="Visual previews"
+            help-body="These previews are rendered from the same tile artwork system used by the plugin, so the visuals stay grounded in the real product."
+            help-href="/homey-help-display"
+            help-title="Rendered from the actual plugin"
+            title="Rendered from the actual plugin"
+          />
           <div class="grid gap-4 lg:grid-cols-2">
             <article
               v-for="visual in plugin.visuals"
               :key="visual.title"
-              class="rounded-[26px] bg-[var(--surface-card)] p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]"
+              class="rounded-[26px] bg-[var(--surface-card)] p-5 shadow-[var(--shadow-panel)]"
             >
               <div class="mb-5 flex min-h-[220px] items-center justify-center overflow-hidden rounded-[22px] bg-[radial-gradient(circle_at_top_left,rgba(0,229,255,0.12),transparent_38%),rgba(255,255,255,0.02)]">
-                <img :alt="visual.title" :src="visual.image" class="h-44 w-44 drop-shadow-[0_22px_34px_rgba(0,0,0,0.34)]" />
+                <img :alt="visual.title" :src="visual.image" class="floating-tile h-44 w-44" style="--tile-delay:-1.1s; --tile-duration:7.4s; --tile-rot:0deg;" />
               </div>
-              <h3 class="text-xl font-medium tracking-[-0.04em] text-white">
-                {{ visual.title }}
-              </h3>
-              <p class="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
-                {{ visual.description }}
-              </p>
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3 class="text-xl font-medium tracking-[-0.04em] text-white">
+                    {{ visual.title }}
+                  </h3>
+                  <p class="mt-2 text-sm leading-7 text-[var(--text-secondary)]">
+                    {{ visual.description }}
+                  </p>
+                </div>
+                <InfoTooltip
+                  :body="visual.description"
+                  href="/homey-help-display"
+                  :title="visual.title"
+                />
+              </div>
             </article>
           </div>
         </section>
 
         <section id="features" class="content-section">
-          <SectionHeader eyebrow="Core benefits" title="Why this plugin is useful on a daily desk" />
+          <SectionHeader
+            eyebrow="Core benefits"
+            help-body="This section keeps the main use-cases scannable. Each point is phrased as a real outcome instead of a long technical explanation."
+            help-href="/homey-help-actions"
+            help-title="What this plugin enables"
+            title="What it enables on the desk"
+          />
           <div class="grid gap-4 lg:grid-cols-2">
             <article
               v-for="highlight in plugin.highlights"
               :key="highlight"
-              class="rounded-[24px] bg-[var(--surface-card)] px-5 py-4 text-sm leading-7 text-[var(--text-secondary)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]"
+              class="rounded-[24px] bg-[var(--surface-card)] px-5 py-5 shadow-[var(--shadow-panel)]"
             >
               <span class="block text-base font-medium text-white">{{ highlight }}</span>
             </article>
@@ -104,22 +126,37 @@
         </section>
 
         <section id="install" class="content-section">
-          <SectionHeader eyebrow="Install flow" title="A setup path that stays technical, not confusing" />
+          <SectionHeader
+            eyebrow="Install flow"
+            help-body="Setup is intentionally linear: connect Homey, choose the signal, define how the key behaves, then refine the visual."
+            help-href="/homey-help-setup"
+            help-title="How setup works"
+            title="Set up without losing the thread"
+          />
           <div class="grid gap-4 lg:grid-cols-2">
             <article
               v-for="(step, index) in plugin.setupSteps"
               :key="step.title"
-              class="rounded-[26px] bg-[var(--surface-card)] p-5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]"
+              class="rounded-[26px] bg-[var(--surface-card)] p-5 shadow-[var(--shadow-panel)]"
             >
-              <p class="text-[0.72rem] font-semibold uppercase tracking-[0.26em] text-[var(--accent-cyan)]">
-                Step {{ index + 1 }}
-              </p>
-              <h3 class="mt-3 text-xl font-medium tracking-[-0.04em] text-white">
-                {{ step.title }}
-              </h3>
-              <p class="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
-                {{ step.body }}
-              </p>
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <p class="text-[0.72rem] font-semibold uppercase tracking-[0.26em] text-[var(--accent-cyan)]">
+                    Step {{ index + 1 }}
+                  </p>
+                  <h3 class="mt-3 text-xl font-medium tracking-[-0.04em] text-white">
+                    {{ step.title }}
+                  </h3>
+                  <p class="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
+                    {{ step.body }}
+                  </p>
+                </div>
+                <InfoTooltip
+                  :body="step.body"
+                  :href="installHelpLinks[index] ?? '/homey-help-setup'"
+                  :title="step.title"
+                />
+              </div>
             </article>
           </div>
         </section>
@@ -130,23 +167,38 @@
         </section>
 
         <section id="support" class="content-section">
-          <SectionHeader eyebrow="Support" title="Focused help and troubleshooting routes" />
+          <SectionHeader
+            eyebrow="Support"
+            help-body="Each support route is focused on one job so users do not have to wade through a generic wall of documentation."
+            help-href="/homey-help-troubleshooting"
+            help-title="How support is organized"
+            title="Focused help routes"
+          />
           <div class="grid gap-4 md:grid-cols-2">
             <RouterLink
               v-for="topic in plugin.helpTopics"
               :key="topic.slug"
               :to="`/help/homey/${topic.slug}`"
-              class="rounded-[24px] bg-[var(--surface-card)] px-5 py-5 transition duration-200 hover:-translate-y-0.5 hover:bg-[var(--surface-card-hover)]"
+              class="rounded-[24px] bg-[var(--surface-card)] px-5 py-5 shadow-[var(--shadow-panel)] transition duration-200 hover:-translate-y-0.5 hover:bg-[var(--surface-card-hover)]"
             >
-              <p class="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[var(--accent-cyan)]">
-                Focused help
-              </p>
-              <h3 class="mt-3 text-xl font-medium tracking-[-0.04em] text-white">
-                {{ topic.title }}
-              </h3>
-              <p class="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
-                {{ topic.body }}
-              </p>
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <p class="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-[var(--accent-cyan)]">
+                    Focused help
+                  </p>
+                  <h3 class="mt-3 text-xl font-medium tracking-[-0.04em] text-white">
+                    {{ topic.title }}
+                  </h3>
+                  <p class="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
+                    {{ topicPreview(topic.slug, topic.body) }}
+                  </p>
+                </div>
+                <InfoTooltip
+                  :body="topic.body"
+                  :href="`/help/homey/${topic.slug}`"
+                  :title="topic.title"
+                />
+              </div>
             </RouterLink>
           </div>
         </section>
@@ -157,30 +209,60 @@
           <p class="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[var(--accent-cyan)]">
             Quick facts
           </p>
-          <div class="mt-5 space-y-4">
-            <div>
-              <p class="text-xs uppercase tracking-[0.22em] text-[var(--text-tertiary)]">Version</p>
-              <p class="mt-2 text-sm font-medium text-white">{{ plugin.version }}</p>
-            </div>
-            <div>
-              <p class="text-xs uppercase tracking-[0.22em] text-[var(--text-tertiary)]">Compatibility</p>
-              <ul class="mt-2 space-y-2 text-sm leading-7 text-[var(--text-secondary)]">
-                <li v-for="item in plugin.compatibility" :key="item">{{ item }}</li>
-              </ul>
-            </div>
-            <div>
-              <p class="text-xs uppercase tracking-[0.22em] text-[var(--text-tertiary)]">Requirements</p>
-              <ul class="mt-2 space-y-2 text-sm leading-7 text-[var(--text-secondary)]">
-                <li v-for="item in plugin.requirements" :key="item">{{ item }}</li>
-              </ul>
-            </div>
+          <div class="mt-5 grid gap-3">
+            <article class="quick-fact-card">
+              <div class="flex items-center justify-between gap-3">
+                <p class="quick-fact-label">Version</p>
+                <InfoTooltip
+                  body="Current public build of Homey Pro Control."
+                  title="Version"
+                />
+              </div>
+              <p class="quick-fact-value">
+                {{ plugin.version }}
+              </p>
+            </article>
+
+            <article class="quick-fact-card">
+              <div class="flex items-center justify-between gap-3">
+                <p class="quick-fact-label">Compatibility</p>
+                <InfoTooltip
+                  :body="plugin.compatibility.join(' • ')"
+                  title="Compatibility"
+                />
+              </div>
+              <p class="quick-fact-value">
+                Homey Pro + Stream Deck 6.9+
+              </p>
+            </article>
+
+            <article class="quick-fact-card">
+              <div class="flex items-center justify-between gap-3">
+                <p class="quick-fact-label">Requirements</p>
+                <InfoTooltip
+                  :body="plugin.requirements.join(' • ')"
+                  href="/homey-help-setup"
+                  title="Requirements"
+                />
+              </div>
+              <p class="quick-fact-value">
+                Local URL + Personal Access Token
+              </p>
+            </article>
           </div>
         </section>
 
         <section class="rounded-[28px] bg-[linear-gradient(180deg,rgba(0,229,255,0.08),rgba(255,255,255,0.02))] p-5 shadow-[var(--shadow-soft)]">
-          <p class="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[var(--accent-cyan)]">
-            Get Plus
-          </p>
+          <div class="flex items-center gap-3">
+            <p class="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[var(--accent-cyan)]">
+              Get Plus
+            </p>
+            <InfoTooltip
+              body="Plus extends the same core actions with richer tile composition, independent warning states, secondary values, and more deliberate control-surface layouts."
+              href="/homey-help-warnings"
+              title="What Plus adds"
+            />
+          </div>
           <h2 class="mt-3 text-2xl font-medium tracking-[-0.05em] text-white">
             When the tile should feel intentional
           </h2>
@@ -196,7 +278,7 @@
           <article
             v-for="related in plugin.relatedPlugins"
             :key="related.title"
-            class="mt-4 rounded-[22px] bg-[var(--surface-card)] p-4 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]"
+            class="mt-4 rounded-[22px] bg-[var(--surface-card)] p-4 shadow-[var(--shadow-panel)]"
           >
             <p class="text-xs uppercase tracking-[0.22em] text-[var(--text-tertiary)]">
               {{ related.state }}
@@ -218,6 +300,7 @@
 import { RouterLink } from "vue-router";
 
 import FaqAccordion from "../components/FaqAccordion.vue";
+import InfoTooltip from "../components/InfoTooltip.vue";
 import SectionHeader from "../components/SectionHeader.vue";
 import { homeyPlugin, type StatusTone } from "../data/site";
 
@@ -237,4 +320,24 @@ const sectionAnchors = [
   { href: "#faq", label: "FAQ" },
   { href: "#support", label: "Support" }
 ];
+
+const installHelpLinks = [
+  "/homey-help-setup",
+  "/homey-help-select",
+  "/homey-help-actions",
+  "/homey-help-display"
+];
+
+const topicPreviewMap: Record<string, string> = {
+  actions: "Toggle, target writes, and control behavior.",
+  display: "Title math, icon treatment, and layout.",
+  select: "Start with device, then choose the signal.",
+  setup: "URL, token, and reconnect issues.",
+  troubleshooting: "What to send and what to check first.",
+  warnings: "Over and under rules, flashing, and types."
+};
+
+function topicPreview(slug: string, text: string): string {
+  return topicPreviewMap[slug] ?? text.match(/^[^.?!]+[.?!]/)?.[0] ?? text;
+}
 </script>

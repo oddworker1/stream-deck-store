@@ -1,7 +1,7 @@
 <template>
   <RouterLink
     :to="to"
-    class="group relative overflow-hidden rounded-[28px] border border-white/6 bg-[var(--surface-card)] p-5 transition duration-200 hover:-translate-y-0.5 hover:bg-[var(--surface-card-hover)]"
+    class="group relative overflow-hidden rounded-[28px] bg-[var(--surface-card)] p-5 shadow-[var(--shadow-panel)] transition duration-200 hover:-translate-y-0.5 hover:bg-[var(--surface-card-hover)]"
   >
     <div class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-br from-cyan-400/14 via-transparent to-transparent" />
 
@@ -66,22 +66,26 @@
         <img
           :src="plugin.visuals[0]?.image"
           :alt="plugin.visuals[0]?.title"
-          class="absolute left-5 top-5 h-40 w-40 -rotate-[8deg] drop-shadow-[0_18px_34px_rgba(0,0,0,0.38)]"
+          class="floating-tile absolute left-5 top-5 h-40 w-40"
+          style="--tile-delay:-0.7s; --tile-duration:7.2s; --tile-rot:-8deg;"
         />
         <img
           :src="plugin.visuals[3]?.image"
           :alt="plugin.visuals[3]?.title"
-          class="absolute left-28 top-16 h-32 w-32 rotate-[8deg] drop-shadow-[0_18px_34px_rgba(0,0,0,0.38)]"
+          class="floating-tile absolute left-28 top-16 h-32 w-32"
+          style="--tile-delay:-2.1s; --tile-duration:8.4s; --tile-rot:8deg;"
         />
         <img
           :src="plugin.visuals[1]?.image"
           :alt="plugin.visuals[1]?.title"
-          class="absolute right-6 top-5 h-36 w-36 rotate-[7deg] drop-shadow-[0_18px_34px_rgba(0,0,0,0.38)]"
+          class="floating-tile absolute right-6 top-5 h-36 w-36"
+          style="--tile-delay:-1.2s; --tile-duration:6.6s; --tile-rot:7deg;"
         />
         <img
           :src="plugin.visuals[2]?.image"
           :alt="plugin.visuals[2]?.title"
-          class="absolute bottom-4 right-20 h-32 w-32 -rotate-[6deg] drop-shadow-[0_18px_34px_rgba(0,0,0,0.38)]"
+          class="floating-tile absolute bottom-4 right-20 h-32 w-32"
+          style="--tile-delay:-2.8s; --tile-duration:7.8s; --tile-rot:-6deg;"
         />
       </div>
     </div>

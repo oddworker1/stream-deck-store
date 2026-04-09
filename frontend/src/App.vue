@@ -57,8 +57,7 @@
               Premium Stream Deck plugins for creators, operators, and advanced control surfaces.
             </h2>
             <p class="max-w-xl text-sm leading-7 text-[var(--text-secondary)]">
-              Discover focused plugins, technical guidance, installation help, and support material without leaving the
-              product context.
+              Product pages, setup, and support in one place.
             </p>
           </div>
 

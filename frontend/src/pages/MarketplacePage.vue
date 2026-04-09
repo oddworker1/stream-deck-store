@@ -3,15 +3,21 @@
     <section class="grid gap-8 overflow-hidden rounded-[32px] bg-[var(--surface-panel)] px-5 py-8 shadow-[var(--shadow-soft)] md:grid-cols-[1.15fr_0.85fr] md:px-8 md:py-10">
       <div class="space-y-8">
         <div class="space-y-5">
-          <p class="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[var(--accent-cyan)]">
-            Adapted Plugin Marketplace
-          </p>
+          <div class="flex items-center gap-3">
+            <p class="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[var(--accent-cyan)]">
+              Adapted Plugin Marketplace
+            </p>
+            <InfoTooltip
+              body="A compact showroom for Adapted Stream Deck tools. Each plugin gets a product page, setup guidance, troubleshooting, and live visual previews."
+              href="/plugins/homey-pro-control"
+              title="How this marketplace works"
+            />
+          </div>
           <h1 class="max-w-3xl text-5xl font-medium leading-[0.92] tracking-[-0.065em] text-white md:text-7xl">
             Stream Deck plugins that feel like product-grade control surfaces.
           </h1>
-          <p class="max-w-2xl text-base leading-8 text-[var(--text-secondary)] md:text-lg">
-            Discover premium plugins from Adapted with richer product pages, clearer installation guidance, focused
-            troubleshooting, and a marketplace that treats plugins like serious tools instead of disposable extensions.
+          <p class="max-w-xl text-base leading-8 text-[var(--text-secondary)] md:text-lg">
+            Browse plugins, inspect what they do, and jump straight into setup or support.
           </p>
         </div>
 
@@ -40,25 +46,32 @@
         </div>
       </div>
 
-      <div class="relative min-h-[420px] overflow-hidden rounded-[28px] bg-[radial-gradient(circle_at_18%_18%,rgba(0,229,255,0.14),transparent_38%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]">
-        <img alt="" class="absolute left-8 top-12 h-48 w-48 -rotate-[9deg] drop-shadow-[0_26px_38px_rgba(0,0,0,0.38)]" src="/assets/homey/generated/homey-energy-live.svg" />
-        <img alt="" class="absolute right-10 top-8 h-44 w-44 rotate-[9deg] drop-shadow-[0_26px_38px_rgba(0,0,0,0.38)]" src="/assets/homey/generated/homey-solar-export.svg" />
-        <img alt="" class="absolute left-32 top-40 h-40 w-40 rotate-[7deg] drop-shadow-[0_24px_34px_rgba(0,0,0,0.38)]" src="/assets/homey/generated/homey-room-launcher.svg" />
-        <img alt="" class="absolute bottom-8 right-20 h-40 w-40 -rotate-[7deg] drop-shadow-[0_24px_34px_rgba(0,0,0,0.38)]" src="/assets/homey/generated/homey-dimmer-target.svg" />
+      <div class="relative min-h-[420px] overflow-hidden rounded-[28px] bg-[radial-gradient(circle_at_18%_18%,rgba(0,229,255,0.14),transparent_38%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] shadow-[var(--shadow-panel)]">
+        <div class="showcase-glow" />
+        <img alt="" class="floating-tile absolute left-8 top-12 h-48 w-48" src="/assets/homey/generated/homey-energy-live.svg" style="--tile-delay:-0.9s; --tile-duration:7.6s; --tile-rot:-9deg;" />
+        <img alt="" class="floating-tile absolute right-10 top-8 h-44 w-44" src="/assets/homey/generated/homey-solar-export.svg" style="--tile-delay:-1.8s; --tile-duration:6.9s; --tile-rot:9deg;" />
+        <img alt="" class="floating-tile absolute left-32 top-40 h-40 w-40" src="/assets/homey/generated/homey-room-launcher.svg" style="--tile-delay:-3s; --tile-duration:8.5s; --tile-rot:7deg;" />
+        <img alt="" class="floating-tile absolute bottom-8 right-20 h-40 w-40" src="/assets/homey/generated/homey-dimmer-target.svg" style="--tile-delay:-2.3s; --tile-duration:7.3s; --tile-rot:-7deg;" />
       </div>
     </section>
 
     <section class="grid gap-5 lg:grid-cols-[280px_1fr]">
       <aside class="space-y-4 rounded-[28px] bg-[var(--surface-panel)] p-5 shadow-[var(--shadow-soft)] lg:sticky lg:top-24 lg:h-fit">
         <div class="space-y-2">
-          <p class="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[var(--accent-cyan)]">
-            Discover
-          </p>
+          <div class="flex items-center gap-3">
+            <p class="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[var(--accent-cyan)]">
+              Discover
+            </p>
+            <InfoTooltip
+              body="Search by plugin name, workflow, or support trait. Filters are tuned for a larger catalog even though Homey is the first release."
+              title="Search and filter"
+            />
+          </div>
           <h2 class="text-2xl font-medium tracking-[-0.05em] text-white">
             Filter the catalog
           </h2>
           <p class="text-sm leading-7 text-[var(--text-secondary)]">
-            Search by plugin name, capability focus, or support traits. The filter system is ready for a larger catalog, even though only Homey is live right now.
+            Search, filter, and jump straight into a plugin page.
           </p>
         </div>
 
@@ -89,9 +102,16 @@
       <section id="plugin-grid" class="space-y-6">
         <div class="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p class="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[var(--accent-cyan)]">
-              Featured plugin
-            </p>
+            <div class="flex items-center gap-3">
+              <p class="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[var(--accent-cyan)]">
+                Featured plugin
+              </p>
+              <InfoTooltip
+                body="The featured card uses real rendered tile artwork, current support status, and fast links into installation and help."
+                href="/plugins/homey-pro-control"
+                title="Why this card is featured"
+              />
+            </div>
             <h2 class="mt-2 text-3xl font-medium tracking-[-0.05em] text-white">
               Precision-built integrations
             </h2>
@@ -117,6 +137,7 @@ import { Search } from "lucide-vue-next";
 import { computed, ref } from "vue";
 import { RouterLink } from "vue-router";
 
+import InfoTooltip from "../components/InfoTooltip.vue";
 import PluginCard from "../components/PluginCard.vue";
 import { adaptedFilters, marketplacePlugins } from "../data/site";
 

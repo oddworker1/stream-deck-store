@@ -100,7 +100,7 @@ export const homeyPlugin: PluginRecord = {
     }
   ],
   detailSummary:
-    "Homey Pro Control turns Stream Deck into a real control surface for Homey Pro: device toggles, exact state targets, live status, live sensor tiles, typed warnings, room launchers, and richer Plus layouts.",
+    "Turn Stream Deck into a clean Homey Pro surface for live values, exact state writes, room launchers, and alert-driven tiles.",
   faq: [
     {
       answer:
@@ -215,27 +215,27 @@ export const homeyPlugin: PluginRecord = {
   setupSteps: [
     {
       body:
-        "Open Setup, enter the Homey Pro URL, paste the Homey API key, and wait for the connection state to confirm access.",
+        "Enter the Homey address and Personal Access Token, then wait for the connected state.",
       title: "Connect Homey Pro"
     },
     {
       body:
-        "Choose the Homey device first. Then pick the main capability and, for Plus tiles, the optional secondary capability.",
+        "Choose the device first, then the main capability and optional secondary value.",
       title: "Select the signal"
     },
     {
       body:
-        "Use Toggle Device for simple control. Use Set Device State for dim levels, target values, or exact capability writes.",
+        "Use toggle for simple control or exact state writes for dim and target-based behavior.",
       title: "Define the behavior"
     },
     {
       body:
-        "Shape the tile using Display. Add title template math, icon styling, text placement, warnings, and Plus enhancements.",
+        "Tune title math, icon treatment, warnings, and Plus-specific layout options.",
       title: "Refine the visual"
     }
   ],
   shortDescription:
-    "Build Stream Deck tiles for live sensor values, device state, dim targets, flows, typed warnings, secondary values, and richer dashboard layouts for Homey Pro.",
+    "Live Homey tiles for values, toggles, target writes, warnings, and room launchers.",
   statuses: [
     { label: "Certified", tone: "blue" },
     { label: "Updated recently", tone: "gold" },
@@ -259,22 +259,22 @@ export const homeyPlugin: PluginRecord = {
   version: "1.1.66.0",
   visuals: [
     {
-      description: "Live power with secondary information and rich tile styling.",
+      description: "Primary and secondary value on one key.",
       image: "/assets/homey/generated/homey-energy-live.svg",
       title: "Live energy tile"
     },
     {
-      description: "Typed warning state with separate alert visual language.",
+      description: "Typed over or under alert styling.",
       image: "/assets/homey/generated/homey-energy-warning-over.svg",
       title: "Warning tile"
     },
     {
-      description: "Direct settable device targets for dimmers and similar capabilities.",
+      description: "Exact target writes for dim or position.",
       image: "/assets/homey/generated/homey-dimmer-target.svg",
       title: "Dim target tile"
     },
     {
-      description: "Launcher-style composition for scenes, rooms, or folders.",
+      description: "Launch rooms, scenes, or folders.",
       image: "/assets/homey/generated/homey-room-launcher.svg",
       title: "Launcher tile"
     }
