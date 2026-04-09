@@ -60,6 +60,9 @@
                 >
                   <div class="streamdeck-key-visual">
                     <img :alt="tile.label" :src="tile.image" class="streamdeck-key-image" />
+                    <span v-if="tile.overlayImage" class="streamdeck-key-badge">
+                      Alarm
+                    </span>
                     <img
                       v-if="tile.overlayImage"
                       alt=""

@@ -32,6 +32,7 @@ export type PluginRecord = {
   badges: string[];
   comparisonIntro: string;
   comparisonRows: ComparisonRow[];
+  contactEmail: string;
   faq: FaqItem[];
   faqIntro: string;
   helpTopicMap: Record<string, string>;
@@ -93,6 +94,7 @@ export const homeyPlugin: PluginRecord = {
       plus: "Included"
     }
   ],
+  contactEmail: "odd@adapted.no",
   faq: [
     {
       answer:
@@ -192,7 +194,7 @@ export const homeyPlugin: PluginRecord = {
     },
     {
       image: "/assets/homey/generated/homey-energy-warning-base.svg",
-      label: "Warning tile",
+      label: "Alarm",
       overlayImage: "/assets/homey/generated/homey-energy-warning-over.svg"
     },
     {
@@ -210,6 +212,10 @@ export const homeyPlugin: PluginRecord = {
     {
       href: "/homey-faq.html",
       label: "Open FAQ"
+    },
+    {
+      href: "mailto:odd@adapted.no",
+      label: "Contact Us"
     }
   ],
   salesIntro:
@@ -238,7 +244,7 @@ export const homeyPlugin: PluginRecord = {
         },
         {
           image: "/assets/homey/generated/homey-energy-warning-base.svg",
-          label: "Warning tile",
+          label: "Alarm",
           overlayImage: "/assets/homey/generated/homey-energy-warning-over.svg"
         },
         {

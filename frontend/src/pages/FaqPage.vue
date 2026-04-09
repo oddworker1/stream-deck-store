@@ -18,6 +18,12 @@
           <p class="page-lead">
             {{ plugin.faqIntro }}
           </p>
+          <p class="contact-line">
+            Contact us:
+            <a :href="`mailto:${plugin.contactEmail}`" class="contact-link">
+              {{ plugin.contactEmail }}
+            </a>
+          </p>
         </div>
       </div>
     </section>
