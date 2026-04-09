@@ -1,15 +1,16 @@
 <template>
-  <div class="space-y-3">
+  <div class="faq-list">
     <details
       v-for="item in items"
-      :key="item.question"
-      class="group rounded-[22px] bg-[var(--surface-card)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]"
+      :id="item.id"
+      :key="item.id"
+      class="faq-item"
     >
-      <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left text-sm font-medium text-white">
+      <summary>
         <span>{{ item.question }}</span>
-        <span class="text-[var(--text-tertiary)] transition group-open:rotate-45">+</span>
+        <span class="faq-item-mark">+</span>
       </summary>
-      <div class="px-5 pb-5 text-sm leading-7 text-[var(--text-secondary)]">
+      <div class="faq-answer">
         {{ item.answer }}
       </div>
     </details>

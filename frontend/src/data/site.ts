@@ -1,288 +1,162 @@
-export type StatusTone = "blue" | "gold" | "green" | "neutral";
-
-export type PluginCardStatus = {
-  label: string;
-  tone: StatusTone;
-};
-
-export type PluginMetric = {
-  label: string;
-  value: string;
-};
-
-export type VisualCard = {
-  description: string;
-  image: string;
-  title: string;
-};
-
-export type FaqItem = {
-  answer: string;
-  question: string;
-};
-
-export type SetupStep = {
-  body: string;
-  title: string;
-};
-
 export type SupportLink = {
+  external?: boolean;
   href: string;
   label: string;
 };
 
-export type HelpTopic = {
-  body: string;
-  related: string[];
-  slug: string;
-  title: string;
+export type PreviewTile = {
+  image: string;
+  label: string;
+  overlayImage?: string;
+};
+
+export type FaqItem = {
+  answer: string;
+  id: string;
+  question: string;
 };
 
 export type PluginRecord = {
-  categories: string[];
-  compatibility: string[];
-  ctaLinks: SupportLink[];
-  detailSummary: string;
+  badges: string[];
   faq: FaqItem[];
-  featuredSummary: string;
-  filters: string[];
-  helpTopics: HelpTopic[];
-  highlights: string[];
+  faqIntro: string;
+  helpTopicMap: Record<string, string>;
   icon: string;
   id: string;
-  metrics: PluginMetric[];
+  listDescription: string;
   name: string;
   plusBullets: string[];
-  relatedPlugins: Array<{
-    description: string;
-    state: string;
-    title: string;
-  }>;
-  requirements: string[];
-  setupSteps: SetupStep[];
-  shortDescription: string;
-  statuses: PluginCardStatus[];
+  plusIcon: string;
+  previewTiles: PreviewTile[];
+  salesBullets: string[];
+  salesCtas: SupportLink[];
+  salesIntro: string;
+  salesSteps: string[];
   supportLinks: SupportLink[];
-  tags: string[];
-  version: string;
-  visuals: VisualCard[];
 };
 
-export const adaptedFilters = [
-  "All",
-  "Home automation",
-  "Control",
-  "Monitoring",
-  "Premium",
-  "Low CPU"
-];
-
 export const homeyPlugin: PluginRecord = {
-  categories: ["Home automation", "Control surface"],
-  compatibility: [
-    "Stream Deck 6.9 or later",
-    "Homey Pro local API",
-    "Windows 10 or later",
-    "macOS 13 or later"
-  ],
-  ctaLinks: [
-    {
-      href: "https://github.com/oddworker1/streamdeck-homey-pro-control",
-      label: "Open project"
-    },
-    {
-      href: "/homey-help-setup",
-      label: "Installation help"
-    },
-    {
-      href: "/homey-help-troubleshooting",
-      label: "Troubleshooting"
-    }
-  ],
-  detailSummary:
-    "Turn Stream Deck into a clean Homey Pro surface for live values, exact state writes, room launchers, and alert-driven tiles.",
+  badges: ["Free + Plus", "Home automation"],
   faq: [
     {
       answer:
-        "Toggle Device is for on/off style behavior. Set Device State is for exact target values such as dim percentage, cover position, or other settable capability values.",
-      question: "What is the difference between Toggle Device and Set Device State?"
+        "Enter the Homey Pro address that works from the same machine as Stream Deck, then paste a Homey web app Personal Access Token and wait for the plugin to show connected.",
+      id: "faq-connect-homey",
+      question: "How do I connect Homey Pro?"
     },
     {
       answer:
-        "Put units directly into Title Template. That keeps the display flexible and lets you choose exactly how the tile reads.",
-      question: "How do I show units on the tile?"
+        "Choose the device first, then the capability you want to read or control. Start simple with one value and add more layout options after the tile works.",
+      id: "faq-select-device",
+      question: "How should I pick device and capability?"
     },
     {
       answer:
-        "Yes. Plus supports typed warning comparisons for number, boolean, and text values, with separate over and under warning definitions.",
-      question: "Can warnings work with booleans and text?"
+        "Use Toggle Device for simple on or off behavior. Use Set Device State when you want an exact target such as dim percentage, cover position, or another explicit value.",
+      id: "faq-action-mode",
+      question: "When should I use Toggle Device or Set Device State?"
     },
     {
       answer:
-        "Open the Debug tab in the plugin and use Copy Debug Snapshot. It includes action settings, recent events, connection state, and selected device information.",
-      question: "What should I send when something behaves wrong?"
+        "Put the wording and units directly in Title Template. That keeps the tile short, readable, and under your control instead of forcing one display format.",
+      id: "faq-display-template",
+      question: "How do I show values and units cleanly?"
+    },
+    {
+      answer:
+        "Plus supports separate warning rules for over and under states, with type-aware comparisons for number, boolean, and text values.",
+      id: "faq-warning-rules",
+      question: "How do warning rules work?"
+    },
+    {
+      answer:
+        "Open the Debug tab and use Copy Debug Snapshot. That gives enough context to troubleshoot connection state, selected device, and recent plugin events quickly.",
+      id: "faq-debug-snapshot",
+      question: "What should I send when I need support?"
     }
   ],
-  featuredSummary:
-    "A premium Stream Deck control layer for Homey Pro with deliberate visuals, exact writes, live telemetry, and product-grade troubleshooting support.",
-  filters: ["Home automation", "Monitoring", "Premium", "Low CPU"],
-  helpTopics: [
-    {
-      body:
-        "Use Setup first. Enter the Homey Pro address exactly as it resolves on your network, then paste a Homey web-app Personal Access Token. Wait for the connected state before moving on to device selection.",
-      related: ["Select a device and capability", "Troubleshoot connection issues"],
-      slug: "setup",
-      title: "Setup and connection"
-    },
-    {
-      body:
-        "Start with the device. Then choose the main capability. If you are using Plus, you can add a secondary capability for combined tiles such as power and daily consumption on the same key.",
-      related: ["Display and title templates", "State write behaviors"],
-      slug: "select",
-      title: "Selecting devices and capabilities"
-    },
-    {
-      body:
-        "Use Toggle Device for on/off interactions. Use Set Device State for exact numeric or boolean targets. The plugin normalizes dim, cover, and common Homey capability patterns so the key behavior stays predictable.",
-      related: ["Setup and connection", "Troubleshooting"],
-      slug: "actions",
-      title: "Control actions and state writes"
-    },
-    {
-      body:
-        "The Display tab controls the visual composition of the key. Use Title Template for exact wording, units, and value math. Position text, choose icon treatment, and style the tile for fast recognition.",
-      related: ["Warnings and alert states", "Selecting devices and capabilities"],
-      slug: "display",
-      title: "Display styling and title templates"
-    },
-    {
-      body:
-        "Plus adds independent Warning Over and Warning Under states. Each can use different operators, icon styling, flash timing, and type-aware comparisons so alerts feel intentional instead of generic.",
-      related: ["Display styling and title templates", "Troubleshooting"],
-      slug: "warnings",
-      title: "Warnings, flashing, and alert rules"
-    },
-    {
-      body:
-        "If a tile behaves unexpectedly, verify connection first, then confirm device and capability selection, and finally use Copy Debug Snapshot. Most configuration issues can be isolated quickly from the Debug event stream.",
-      related: ["Setup and connection", "Control actions and state writes"],
-      slug: "troubleshooting",
-      title: "Troubleshooting and support"
-    }
-  ],
-  highlights: [
-    "Live sensor tiles with title math and secondary values",
-    "Direct control actions for toggles, flows, and exact state targets",
-    "Typed warnings for numbers, booleans, and text",
-    "2122 icon options and richer Plus styling"
-  ],
+  faqIntro: "Short answers only. Links from the plugin open the matching question automatically.",
+  helpTopicMap: {
+    actions: "faq-action-mode",
+    display: "faq-display-template",
+    select: "faq-select-device",
+    setup: "faq-connect-homey",
+    troubleshooting: "faq-debug-snapshot",
+    warnings: "faq-warning-rules"
+  },
   icon: "/assets/homey/free-icon.png",
   id: "homey-pro-control",
-  metrics: [
-    {
-      label: "Plugin status",
-      value: "Actively maintained"
-    },
-    {
-      label: "Icon library",
-      value: "2122 glyphs"
-    },
-    {
-      label: "Performance profile",
-      value: "Low CPU"
-    }
-  ],
+  listDescription: "Live Homey tiles for values, toggles, target writes, warnings, and room launchers.",
   name: "Homey Pro Control",
   plusBullets: [
     "Secondary values on the same tile",
-    "Independent over and under warning states",
-    "Typed comparisons for number, boolean, and text",
-    "Room launchers and richer visual composition"
+    "Separate warning states for over and under limits",
+    "Typed comparisons for numbers, booleans, and text",
+    "Richer tile layouts for dedicated dashboards"
   ],
-  relatedPlugins: [
+  plusIcon: "/assets/homey/plus-icon.png",
+  previewTiles: [
     {
-      description: "More Adapted Stream Deck tools will land here as the catalog grows.",
-      state: "Coming next",
-      title: "More plugins soon"
+      image: "/assets/homey/generated/homey-energy-live.svg",
+      label: "Live energy"
+    },
+    {
+      image: "/assets/homey/generated/homey-room-launcher.svg",
+      label: "Room launcher"
+    },
+    {
+      image: "/assets/homey/generated/homey-energy-warning-base.svg",
+      label: "Warning tile",
+      overlayImage: "/assets/homey/generated/homey-energy-warning-over.svg"
+    },
+    {
+      image: "/assets/homey/generated/homey-dimmer-target.svg",
+      label: "Dim target"
     }
   ],
-  requirements: [
-    "A Homey Pro address reachable from the Stream Deck host machine",
-    "A Homey web-app Personal Access Token",
-    "Stream Deck desktop app with developer mode enabled for local builds",
-    "Homey devices or flows already configured in Homey"
+  salesBullets: [
+    "Show live values on Stream Deck keys",
+    "Control devices with toggles or exact target writes",
+    "Build warning tiles for values that should stand out",
+    "Keep Homey dashboards readable instead of crowded"
   ],
-  setupSteps: [
+  salesCtas: [
     {
-      body:
-        "Enter the Homey address and Personal Access Token, then wait for the connected state.",
-      title: "Connect Homey Pro"
+      href: "/homey-faq.html",
+      label: "Open FAQ"
     },
     {
-      body:
-        "Choose the device first, then the main capability and optional secondary value.",
-      title: "Select the signal"
-    },
-    {
-      body:
-        "Use toggle for simple control or exact state writes for dim and target-based behavior.",
-      title: "Define the behavior"
-    },
-    {
-      body:
-        "Tune title math, icon treatment, warnings, and Plus-specific layout options.",
-      title: "Refine the visual"
+      external: true,
+      href: "https://github.com/oddworker1/streamdeck-homey-pro-control",
+      label: "GitHub"
     }
   ],
-  shortDescription:
-    "Live Homey tiles for values, toggles, target writes, warnings, and room launchers.",
-  statuses: [
-    { label: "Certified", tone: "blue" },
-    { label: "Updated recently", tone: "gold" },
-    { label: "Low CPU", tone: "green" }
+  salesIntro:
+    "A focused Stream Deck plugin for Homey Pro. Use it for live values, clean control tiles, warnings, and room launchers without turning the support site into a marketplace wall.",
+  salesSteps: [
+    "Connect Homey Pro with a local address and Personal Access Token.",
+    "Choose the device and capability you want on the key.",
+    "Pick toggle or exact state writes for the behavior.",
+    "Refine the tile with title text, units, and warning rules."
   ],
   supportLinks: [
     {
-      href: "https://github.com/oddworker1/streamdeck-homey-pro-control",
-      label: "GitHub"
+      href: "/homey-faq.html#faq-connect-homey",
+      label: "Setup"
     },
     {
-      href: "/homey-help-setup",
-      label: "Setup guide"
+      href: "/homey-faq.html#faq-warning-rules",
+      label: "Warnings"
     },
     {
-      href: "/homey-help-troubleshooting",
+      href: "/homey-faq.html#faq-debug-snapshot",
       label: "Support"
-    }
-  ],
-  tags: ["Warnings", "Dim targets", "Live sensor tiles", "Premium visuals"],
-  version: "1.1.66.0",
-  visuals: [
-    {
-      description: "Primary and secondary value on one key.",
-      image: "/assets/homey/generated/homey-energy-live.svg",
-      title: "Live energy tile"
-    },
-    {
-      description: "Typed over or under alert styling.",
-      image: "/assets/homey/generated/homey-energy-warning-over.svg",
-      title: "Warning tile"
-    },
-    {
-      description: "Exact target writes for dim or position.",
-      image: "/assets/homey/generated/homey-dimmer-target.svg",
-      title: "Dim target tile"
-    },
-    {
-      description: "Launch rooms, scenes, or folders.",
-      image: "/assets/homey/generated/homey-room-launcher.svg",
-      title: "Launcher tile"
     }
   ]
 };
 
 export const marketplacePlugins = [homeyPlugin];
 
-export function findHelpTopic(slug: string): HelpTopic | undefined {
-  return homeyPlugin.helpTopics.find((topic) => topic.slug === slug);
+export function faqIdForHelpTopic(topic: string): string {
+  return homeyPlugin.helpTopicMap[topic] ?? "faq-connect-homey";
 }

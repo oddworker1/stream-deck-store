@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import FocusedHelpPage from "./pages/FocusedHelpPage.vue";
+import FaqPage from "./pages/FaqPage.vue";
 import MarketplacePage from "./pages/MarketplacePage.vue";
 import PluginDetailPage from "./pages/PluginDetailPage.vue";
+import { faqIdForHelpTopic } from "./data/site";
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -16,8 +17,8 @@ export const router = createRouter({
       }
     },
     {
-      path: "/plugins/homey-pro-control",
-      alias: ["/homey"],
+      path: "/homey.html",
+      alias: ["/homey", "/plugins/homey-pro-control"],
       name: "plugin-homey",
       component: PluginDetailPage,
       meta: {
@@ -25,29 +26,30 @@ export const router = createRouter({
       }
     },
     {
-      path: "/help/homey/:topic",
-      alias: [
-        "/homey-help-setup",
-        "/homey-help-select",
-        "/homey-help-actions",
-        "/homey-help-display",
-        "/homey-help-warnings",
-        "/homey-help-troubleshooting"
-      ],
-      name: "plugin-homey-help",
-      component: FocusedHelpPage,
+      path: "/homey-faq.html",
+      alias: ["/homey-faq", "/plugins/homey-pro-control/faq"],
+      name: "plugin-homey-faq",
+      component: FaqPage,
       meta: {
-        title: "Homey Help | Homey Pro Control"
-      },
-      props: (route) => {
-        const topicFromAlias = route.path.startsWith("/homey-help-")
-          ? route.path.replace("/homey-help-", "")
-          : route.params.topic;
-
-        return {
-          topic: String(topicFromAlias)
-        };
+        title: "Homey FAQ | Adapted"
       }
+    },
+    {
+      path: "/help/homey/:topic",
+      name: "plugin-homey-help",
+      redirect: (to) => ({
+        hash: `#${faqIdForHelpTopic(String(to.params.topic ?? "setup"))}`,
+        path: "/homey-faq.html",
+        query: to.query
+      })
+    },
+    {
+      path: "/homey-help-:topic",
+      redirect: (to) => ({
+        hash: `#${faqIdForHelpTopic(String(to.params.topic ?? "setup"))}`,
+        path: "/homey-faq.html",
+        query: to.query
+      })
     },
     {
       path: "/:pathMatch(.*)*",
@@ -59,7 +61,7 @@ export const router = createRouter({
       return {
         el: to.hash,
         behavior: "smooth",
-        top: 96
+        top: 24
       };
     }
 
@@ -68,26 +70,5 @@ export const router = createRouter({
 });
 
 router.afterEach((to) => {
-  const topic =
-    typeof to.params.topic === "string"
-      ? to.params.topic
-      : to.path.startsWith("/homey-help-")
-        ? to.path.replace("/homey-help-", "")
-        : undefined;
-
-  if (to.name === "plugin-homey-help") {
-    const topicTitles: Record<string, string> = {
-      actions: "Control Actions",
-      display: "Display Styling",
-      select: "Selecting Devices",
-      setup: "Setup and Connection",
-      troubleshooting: "Troubleshooting",
-      warnings: "Warnings and Alert Rules"
-    };
-
-    document.title = `${topicTitles[topic ?? "setup"] ?? "Homey Help"} | Homey Pro Control`;
-    return;
-  }
-
   document.title = String(to.meta.title ?? "Adapted Stream Deck Plugins");
 });
