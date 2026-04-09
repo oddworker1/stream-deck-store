@@ -10,6 +10,12 @@ export type PreviewTile = {
   overlayImage?: string;
 };
 
+export type ComparisonRow = {
+  feature: string;
+  free: string;
+  plus: string;
+};
+
 export type FaqItem = {
   answer: string;
   id: string;
@@ -18,6 +24,7 @@ export type FaqItem = {
 
 export type PluginRecord = {
   badges: string[];
+  comparisonRows: ComparisonRow[];
   faq: FaqItem[];
   faqIntro: string;
   helpTopicMap: Record<string, string>;
@@ -37,6 +44,43 @@ export type PluginRecord = {
 
 export const homeyPlugin: PluginRecord = {
   badges: ["Free + Plus", "Home automation"],
+  comparisonRows: [
+    {
+      feature: "Toggle devices and set exact values",
+      free: "Included",
+      plus: "Included"
+    },
+    {
+      feature: "Run Flows and Advanced Flows",
+      free: "Included",
+      plus: "Included"
+    },
+    {
+      feature: "Live status and sensor values",
+      free: "Included",
+      plus: "Included"
+    },
+    {
+      feature: "Second value on one key",
+      free: "-",
+      plus: "Included"
+    },
+    {
+      feature: "Typed warning rules",
+      free: "-",
+      plus: "Included"
+    },
+    {
+      feature: "Custom icons and richer tile styling",
+      free: "-",
+      plus: "Included"
+    },
+    {
+      feature: "Room and scene folder launcher",
+      free: "-",
+      plus: "Included"
+    }
+  ],
   faq: [
     {
       answer:
@@ -46,9 +90,21 @@ export const homeyPlugin: PluginRecord = {
     },
     {
       answer:
+        "If the device list is empty, the Homey address is usually wrong, the API token is invalid, or Homey is not reachable from this machine.",
+      id: "faq-empty-catalog",
+      question: "Why is the device list empty?"
+    },
+    {
+      answer:
         "Choose the device first, then the capability you want to read or control. Start simple with one value and add more layout options after the tile works.",
       id: "faq-select-device",
       question: "How should I pick device and capability?"
+    },
+    {
+      answer:
+        "Use a second value only when it adds useful context. If the tile starts feeling crowded, leave it out.",
+      id: "faq-second-value",
+      question: "When should I use a second value?"
     },
     {
       answer:
@@ -58,9 +114,21 @@ export const homeyPlugin: PluginRecord = {
     },
     {
       answer:
+        "Use Set Device State, choose a dim or position-style capability, then set the value type so the target input appears.",
+      id: "faq-dim-input",
+      question: "Why do I not see a dim percentage input?"
+    },
+    {
+      answer:
         "Put the wording and units directly in Title Template. That keeps the tile short, readable, and under your control instead of forcing one display format.",
       id: "faq-display-template",
       question: "How do I show values and units cleanly?"
+    },
+    {
+      answer:
+        "Set the title, text size, and icon first. Use color only when it adds meaning instead of noise.",
+      id: "faq-display-layout",
+      question: "How do I keep the tile readable?"
     },
     {
       answer:
@@ -70,9 +138,21 @@ export const homeyPlugin: PluginRecord = {
     },
     {
       answer:
+        "Yes. Warning states can flash first and then stay solid while the condition is still active.",
+      id: "faq-warning-flash",
+      question: "Can the warning tile flash?"
+    },
+    {
+      answer:
         "Open the Debug tab and use Copy Debug Snapshot. That gives enough context to troubleshoot connection state, selected device, and recent plugin events quickly.",
       id: "faq-debug-snapshot",
       question: "What should I send when I need support?"
+    },
+    {
+      answer:
+        "Create a Personal Access Token in the Homey web app developer settings, then paste it into Setup inside the plugin.",
+      id: "faq-api-key",
+      question: "Where do I get the Homey API key?"
     }
   ],
   faqIntro: "Short answers only. Links from the plugin open the matching question automatically.",

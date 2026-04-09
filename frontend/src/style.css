@@ -292,6 +292,10 @@ summary {
     @apply grid gap-4 md:grid-cols-2;
   }
 
+  .comparison-panel {
+    @apply md:col-span-2;
+  }
+
   .info-panel {
     @apply rounded-[24px] p-5 shadow-[var(--shadow-panel)];
     background:
@@ -323,6 +327,54 @@ summary {
 
   .support-link:hover {
     background: rgba(255, 255, 255, 0.09);
+  }
+
+  .comparison-table-wrap {
+    @apply mt-4 overflow-x-auto rounded-[18px];
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .comparison-table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.025);
+  }
+
+  .comparison-table thead th {
+    padding: 0.95rem 1rem;
+    text-align: left;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  .comparison-table tbody th,
+  .comparison-table tbody td {
+    padding: 0.95rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.95rem;
+  }
+
+  .comparison-table tbody th {
+    text-align: left;
+    font-weight: 600;
+    color: white;
+  }
+
+  .comparison-table tbody td {
+    color: var(--text-secondary);
+  }
+
+  .comparison-table tbody td:last-child {
+    color: #f7e3c0;
+  }
+
+  .comparison-value-muted {
+    color: var(--text-tertiary) !important;
   }
 
   .faq-list {

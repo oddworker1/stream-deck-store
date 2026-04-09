@@ -96,6 +96,40 @@
         </ol>
       </article>
 
+      <article class="info-panel comparison-panel">
+        <h2 class="panel-title">Free vs Plus</h2>
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th scope="col">
+                  Feature
+                </th>
+                <th scope="col">
+                  Free
+                </th>
+                <th scope="col">
+                  Plus
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="row in plugin.comparisonRows" :key="row.feature">
+                <th scope="row">
+                  {{ row.feature }}
+                </th>
+                <td :class="{ 'comparison-value-muted': row.free === '-' }">
+                  {{ row.free }}
+                </td>
+                <td>
+                  {{ row.plus }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
       <article class="info-panel">
         <h2 class="panel-title">Support</h2>
         <div class="support-link-list">
