@@ -33,12 +33,20 @@
       >
         <div class="plugin-preview-visual">
           <img :alt="tile.label" :src="tile.image" class="plugin-preview-tile" />
-          <img
+          <div
             v-if="tile.overlayImage"
-            alt=""
-            :src="tile.overlayImage"
-            class="plugin-preview-tile warning-flash"
-          />
+            class="plugin-preview-alert warning-flash"
+          >
+            <img
+              alt=""
+              :src="tile.overlayImage"
+              class="plugin-preview-tile"
+            />
+            <div class="plugin-preview-alert-copy">
+              <strong>{{ tile.label }}</strong>
+              <span>{{ tile.alertDetail ?? "Warning" }}</span>
+            </div>
+          </div>
         </div>
         <span class="plugin-preview-label">{{ tile.label }}</span>
       </article>

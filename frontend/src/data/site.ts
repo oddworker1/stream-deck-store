@@ -5,6 +5,7 @@ export type SupportLink = {
 };
 
 export type PreviewTile = {
+  alertDetail?: string;
   image: string;
   label: string;
   overlayImage?: string;
@@ -195,6 +196,7 @@ export const homeyPlugin: PluginRecord = {
     {
       image: "/assets/homey/generated/homey-energy-warning-base.svg",
       label: "Alarm",
+      alertDetail: "Grid Load",
       overlayImage: "/assets/homey/generated/homey-energy-warning-over.svg"
     },
     {
@@ -212,10 +214,6 @@ export const homeyPlugin: PluginRecord = {
     {
       href: "/homey-faq.html",
       label: "Open FAQ"
-    },
-    {
-      href: "mailto:odd@adapted.no",
-      label: "Contact Us"
     }
   ],
   salesIntro:
@@ -245,6 +243,7 @@ export const homeyPlugin: PluginRecord = {
         {
           image: "/assets/homey/generated/homey-energy-warning-base.svg",
           label: "Alarm",
+          alertDetail: "Grid Load",
           overlayImage: "/assets/homey/generated/homey-energy-warning-over.svg"
         },
         {

@@ -23,6 +23,12 @@
             <p class="page-lead">
               {{ plugin.salesIntro }}
             </p>
+            <p class="contact-line">
+              Contact us:
+              <a :href="`mailto:${plugin.contactEmail}`" class="contact-link">
+                {{ plugin.contactEmail }}
+              </a>
+            </p>
           </div>
 
           <div class="flex flex-wrap gap-3">
@@ -60,15 +66,20 @@
                 >
                   <div class="streamdeck-key-visual">
                     <img :alt="tile.label" :src="tile.image" class="streamdeck-key-image" />
-                    <span v-if="tile.overlayImage" class="streamdeck-key-badge">
-                      Alarm
-                    </span>
-                    <img
+                    <div
                       v-if="tile.overlayImage"
-                      alt=""
-                      :src="tile.overlayImage"
-                      class="streamdeck-key-image warning-flash"
-                    />
+                      class="streamdeck-alert-overlay warning-flash"
+                    >
+                      <img
+                        alt=""
+                        :src="tile.overlayImage"
+                        class="streamdeck-key-image"
+                      />
+                      <div class="streamdeck-alert-copy">
+                        <strong>{{ tile.label }}</strong>
+                        <span>{{ tile.alertDetail ?? "Warning" }}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

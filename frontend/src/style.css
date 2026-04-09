@@ -281,6 +281,26 @@ summary {
     background: rgba(255, 255, 255, 0.02);
   }
 
+  .plugin-preview-alert {
+    @apply absolute inset-0;
+  }
+
+  .plugin-preview-alert-copy,
+  .streamdeck-alert-copy {
+    @apply absolute inset-x-0 bottom-3 px-2 text-center text-white;
+    text-shadow: 0 4px 14px rgba(0, 0, 0, 0.38);
+  }
+
+  .plugin-preview-alert-copy strong,
+  .streamdeck-alert-copy strong {
+    @apply block text-[0.72rem] font-semibold uppercase tracking-[0.22em];
+  }
+
+  .plugin-preview-alert-copy span,
+  .streamdeck-alert-copy span {
+    @apply block text-[0.56rem] font-medium uppercase tracking-[0.18em] text-white/82;
+  }
+
   .plugin-preview-tile {
     width: 7rem;
     height: 7rem;
@@ -365,10 +385,8 @@ summary {
     @apply h-full w-full object-cover;
   }
 
-  .streamdeck-key-badge {
-    @apply absolute left-2 top-2 rounded-full px-2 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-white;
-    background: rgba(255, 109, 95, 0.92);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+  .streamdeck-alert-overlay {
+    @apply absolute inset-0;
   }
 
   .sales-grid {
@@ -409,6 +427,10 @@ summary {
 
   .contact-link {
     @apply font-medium text-white underline decoration-white/35 underline-offset-4;
+  }
+
+  .page-contact-line {
+    @apply px-1;
   }
 
   .comparison-table-wrap {
