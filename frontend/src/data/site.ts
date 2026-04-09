@@ -16,6 +16,12 @@ export type ComparisonRow = {
   plus: string;
 };
 
+export type ShowcaseBoard = {
+  caption: string;
+  title: string;
+  tiles: PreviewTile[];
+};
+
 export type FaqItem = {
   answer: string;
   id: string;
@@ -24,6 +30,7 @@ export type FaqItem = {
 
 export type PluginRecord = {
   badges: string[];
+  comparisonIntro: string;
   comparisonRows: ComparisonRow[];
   faq: FaqItem[];
   faqIntro: string;
@@ -32,51 +39,56 @@ export type PluginRecord = {
   id: string;
   listDescription: string;
   name: string;
-  plusBullets: string[];
   plusIcon: string;
   previewTiles: PreviewTile[];
   salesBullets: string[];
   salesCtas: SupportLink[];
   salesIntro: string;
   salesSteps: string[];
-  supportLinks: SupportLink[];
+  showcaseBoards: ShowcaseBoard[];
 };
 
 export const homeyPlugin: PluginRecord = {
   badges: ["Free + Plus", "Home automation"],
+  comparisonIntro: "Plus includes everything in Free and adds the extras below.",
   comparisonRows: [
     {
-      feature: "Toggle devices and set exact values",
-      free: "Included",
-      plus: "Included"
-    },
-    {
-      feature: "Run Flows and Advanced Flows",
-      free: "Included",
-      plus: "Included"
-    },
-    {
-      feature: "Live status and sensor values",
-      free: "Included",
-      plus: "Included"
-    },
-    {
-      feature: "Second value on one key",
-      free: "-",
-      plus: "Included"
-    },
-    {
-      feature: "Typed warning rules",
-      free: "-",
-      plus: "Included"
-    },
-    {
-      feature: "Custom icons and richer tile styling",
+      feature: "Second value from the same device",
       free: "-",
       plus: "Included"
     },
     {
       feature: "Room and scene folder launcher",
+      free: "-",
+      plus: "Included"
+    },
+    {
+      feature: "Over and under warning states",
+      free: "-",
+      plus: "Included"
+    },
+    {
+      feature: "Warning rules for number, boolean, and text values",
+      free: "-",
+      plus: "Included"
+    },
+    {
+      feature: "Warning flash interval and duration controls",
+      free: "-",
+      plus: "Included"
+    },
+    {
+      feature: "Custom text size, position, alignment, and colors",
+      free: "-",
+      plus: "Included"
+    },
+    {
+      feature: "Searchable Material icons with custom color and size",
+      free: "-",
+      plus: "Included"
+    },
+    {
+      feature: "Title template math filters like div and fixed",
       free: "-",
       plus: "Included"
     }
@@ -168,12 +180,6 @@ export const homeyPlugin: PluginRecord = {
   id: "homey-pro-control",
   listDescription: "Live Homey tiles for values, toggles, target writes, warnings, and room launchers.",
   name: "Homey Pro Control",
-  plusBullets: [
-    "Secondary values on the same tile",
-    "Separate warning states for over and under limits",
-    "Typed comparisons for numbers, booleans, and text",
-    "Richer tile layouts for dedicated dashboards"
-  ],
   plusIcon: "/assets/homey/plus-icon.png",
   previewTiles: [
     {
@@ -204,11 +210,6 @@ export const homeyPlugin: PluginRecord = {
     {
       href: "/homey-faq.html",
       label: "Open FAQ"
-    },
-    {
-      external: true,
-      href: "https://github.com/oddworker1/streamdeck-homey-pro-control",
-      label: "GitHub"
     }
   ],
   salesIntro:
@@ -219,18 +220,67 @@ export const homeyPlugin: PluginRecord = {
     "Pick toggle or exact state writes for the behavior.",
     "Refine the tile with title text, units, and warning rules."
   ],
-  supportLinks: [
+  showcaseBoards: [
     {
-      href: "/homey-faq.html#faq-connect-homey",
-      label: "Setup"
+      caption: "Live values, targets, and warning tiles on one deck.",
+      tiles: [
+        {
+          image: "/assets/homey/generated/homey-energy-live.svg",
+          label: "Live energy"
+        },
+        {
+          image: "/assets/homey/generated/homey-solar-export.svg",
+          label: "Solar export"
+        },
+        {
+          image: "/assets/homey/generated/homey-climate.svg",
+          label: "Climate"
+        },
+        {
+          image: "/assets/homey/generated/homey-energy-warning-base.svg",
+          label: "Warning tile",
+          overlayImage: "/assets/homey/generated/homey-energy-warning-over.svg"
+        },
+        {
+          image: "/assets/homey/generated/homey-dimmer-target.svg",
+          label: "Dim target"
+        },
+        {
+          image: "/assets/homey/generated/homey-door-status.svg",
+          label: "Door status"
+        }
+      ],
+      title: "Power wall"
     },
     {
-      href: "/homey-faq.html#faq-warning-rules",
-      label: "Warnings"
-    },
-    {
-      href: "/homey-faq.html#faq-debug-snapshot",
-      label: "Support"
+      caption: "Room access and quick control without cluttering the deck.",
+      tiles: [
+        {
+          image: "/assets/homey/generated/homey-room-launcher.svg",
+          label: "Room launcher"
+        },
+        {
+          image: "/assets/homey/generated/homey-climate.svg",
+          label: "Climate"
+        },
+        {
+          image: "/assets/homey/generated/homey-door-status.svg",
+          label: "Door status"
+        },
+        {
+          image: "/assets/homey/generated/homey-dimmer-target.svg",
+          label: "Dim target"
+        },
+        {
+          image: "/assets/homey/generated/homey-energy-live.svg",
+          label: "Live energy"
+        },
+        {
+          image: "/assets/homey/generated/homey-solar-export.svg",
+          label: "Solar export"
+        }
+      ],
+      title: "Room control"
     }
   ]
 };

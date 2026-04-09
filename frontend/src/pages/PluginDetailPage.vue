@@ -1,15 +1,8 @@
 <template>
   <main class="page-shell page-shell-wide">
-    <section class="page-panel page-panel-compact">
-      <nav class="site-tabs" aria-label="Homey pages">
-        <RouterLink class="tab-link" to="/homey.html">
-          Sales
-        </RouterLink>
-        <RouterLink class="tab-link" to="/homey-faq.html">
-          FAQ
-        </RouterLink>
-      </nav>
+    <SiteTopBar />
 
+    <section class="page-panel page-panel-compact">
       <section class="sales-hero">
         <div class="space-y-5">
           <div class="flex items-center gap-3">
@@ -46,23 +39,37 @@
           </div>
         </div>
 
-        <div class="plugin-preview-grid plugin-preview-grid-large" aria-hidden="true">
+        <div class="streamdeck-board-grid" aria-hidden="true">
           <article
-            v-for="tile in plugin.previewTiles"
-            :key="tile.label"
-            class="plugin-preview-card"
-            :class="{ 'plugin-preview-card-warning': tile.overlayImage }"
+            v-for="board in plugin.showcaseBoards"
+            :key="board.title"
+            class="streamdeck-shot"
           >
-            <div class="plugin-preview-visual">
-              <img :alt="tile.label" :src="tile.image" class="plugin-preview-tile" />
-              <img
-                v-if="tile.overlayImage"
-                alt=""
-                :src="tile.overlayImage"
-                class="plugin-preview-tile warning-flash"
-              />
+            <div class="streamdeck-shot-copy">
+              <strong>{{ board.title }}</strong>
+              <span>{{ board.caption }}</span>
             </div>
-            <span class="plugin-preview-label">{{ tile.label }}</span>
+
+            <div class="streamdeck-device">
+              <div class="streamdeck-key-grid">
+                <div
+                  v-for="tile in board.tiles"
+                  :key="`${board.title}-${tile.label}`"
+                  class="streamdeck-key"
+                  :class="{ 'streamdeck-key-warning': tile.overlayImage }"
+                >
+                  <div class="streamdeck-key-visual">
+                    <img :alt="tile.label" :src="tile.image" class="streamdeck-key-image" />
+                    <img
+                      v-if="tile.overlayImage"
+                      alt=""
+                      :src="tile.overlayImage"
+                      class="streamdeck-key-image warning-flash"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </article>
         </div>
       </section>
@@ -79,15 +86,6 @@
       </article>
 
       <article class="info-panel">
-        <h2 class="panel-title">Plus adds</h2>
-        <ul class="info-list">
-          <li v-for="item in plugin.plusBullets" :key="item">
-            {{ item }}
-          </li>
-        </ul>
-      </article>
-
-      <article class="info-panel">
         <h2 class="panel-title">Setup</h2>
         <ol class="step-list">
           <li v-for="step in plugin.salesSteps" :key="step">
@@ -98,6 +96,9 @@
 
       <article class="info-panel comparison-panel">
         <h2 class="panel-title">Free vs Plus</h2>
+        <p class="comparison-intro">
+          {{ plugin.comparisonIntro }}
+        </p>
         <div class="comparison-table-wrap">
           <table class="comparison-table">
             <thead>
@@ -129,27 +130,12 @@
           </table>
         </div>
       </article>
-
-      <article class="info-panel">
-        <h2 class="panel-title">Support</h2>
-        <div class="support-link-list">
-          <a
-            v-for="link in plugin.supportLinks"
-            :key="link.label"
-            :href="link.href"
-            class="support-link"
-          >
-            {{ link.label }}
-          </a>
-        </div>
-      </article>
     </section>
   </main>
 </template>
 
 <script setup lang="ts">
-import { RouterLink } from "vue-router";
-
+import SiteTopBar from "../components/SiteTopBar.vue";
 import { homeyPlugin } from "../data/site";
 
 const plugin = homeyPlugin;

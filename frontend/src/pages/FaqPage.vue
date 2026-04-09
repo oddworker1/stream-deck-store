@@ -1,15 +1,8 @@
 <template>
   <main class="page-shell page-shell-wide">
-    <section class="page-panel page-panel-compact">
-      <nav class="site-tabs" aria-label="Homey pages">
-        <RouterLink class="tab-link" to="/homey.html">
-          Sales
-        </RouterLink>
-        <RouterLink class="tab-link" to="/homey-faq.html">
-          FAQ
-        </RouterLink>
-      </nav>
+    <SiteTopBar />
 
+    <section class="page-panel page-panel-compact">
       <div class="space-y-4">
         <div class="flex flex-wrap items-center gap-2">
           <span class="badge-pill">FAQ</span>
@@ -37,9 +30,10 @@
 
 <script setup lang="ts">
 import { computed, nextTick, onMounted, watch } from "vue";
-import { RouterLink, useRoute } from "vue-router";
+import { useRoute } from "vue-router";
 
 import FaqAccordion from "../components/FaqAccordion.vue";
+import SiteTopBar from "../components/SiteTopBar.vue";
 import { homeyPlugin } from "../data/site";
 
 const plugin = homeyPlugin;

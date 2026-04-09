@@ -140,6 +140,18 @@ summary {
     @apply space-y-5;
   }
 
+  .site-topbar {
+    @apply flex items-center justify-center rounded-full px-5 py-3 text-center;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow:
+      0 10px 26px rgba(0, 0, 0, 0.14),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .site-topbar-link {
+    @apply text-sm font-semibold tracking-[0.2em] text-white uppercase;
+  }
+
   .site-tabs {
     @apply flex gap-2;
   }
@@ -288,6 +300,71 @@ summary {
     @apply grid gap-5 lg:grid-cols-[1.02fr_0.98fr] lg:items-start;
   }
 
+  .streamdeck-board-grid {
+    @apply grid gap-4;
+  }
+
+  .streamdeck-shot {
+    @apply rounded-[24px] p-4;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+      rgba(255, 255, 255, 0.02);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .streamdeck-shot-copy {
+    @apply mb-4 space-y-1;
+  }
+
+  .streamdeck-shot-copy strong {
+    @apply block text-sm font-semibold uppercase tracking-[0.18em] text-white;
+  }
+
+  .streamdeck-shot-copy span {
+    @apply block text-sm leading-6 text-[var(--text-secondary)];
+  }
+
+  .streamdeck-device {
+    @apply rounded-[32px] p-4 md:p-5;
+    background:
+      radial-gradient(circle at top center, rgba(255, 255, 255, 0.06), transparent 42%),
+      linear-gradient(180deg, #111a24 0%, #05080d 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+      0 20px 36px rgba(0, 0, 0, 0.28);
+  }
+
+  .streamdeck-key-grid {
+    @apply grid grid-cols-3 gap-3;
+  }
+
+  .streamdeck-key {
+    @apply aspect-square rounded-[18px] p-2;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0)),
+      #030608;
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+      0 8px 14px rgba(0, 0, 0, 0.22);
+  }
+
+  .streamdeck-key-warning {
+    background:
+      radial-gradient(circle at top center, rgba(255, 109, 95, 0.18), transparent 48%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0)),
+      #030608;
+  }
+
+  .streamdeck-key-visual {
+    @apply relative h-full w-full overflow-hidden rounded-[12px];
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .streamdeck-key-image {
+    @apply h-full w-full object-cover;
+  }
+
   .sales-grid {
     @apply grid gap-4 md:grid-cols-2;
   }
@@ -316,17 +393,8 @@ summary {
     @apply list-decimal pl-5;
   }
 
-  .support-link-list {
-    @apply mt-4 flex flex-wrap gap-3;
-  }
-
-  .support-link {
-    @apply inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-white transition duration-200;
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  .support-link:hover {
-    background: rgba(255, 255, 255, 0.09);
+  .comparison-intro {
+    @apply mt-3 text-sm leading-7 text-[var(--text-secondary)];
   }
 
   .comparison-table-wrap {

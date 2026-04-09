@@ -1,5 +1,7 @@
 <template>
   <main class="page-shell">
+    <SiteTopBar />
+
     <section class="page-panel">
       <div class="plugin-list-stack">
         <PluginCard
@@ -15,5 +17,6 @@
 
 <script setup lang="ts">
 import PluginCard from "../components/PluginCard.vue";
+import SiteTopBar from "../components/SiteTopBar.vue";
 import { marketplacePlugins } from "../data/site";
 </script>
