@@ -15,33 +15,31 @@
   --shadow-panel: 0 18px 42px rgba(0, 0, 0, 0.22);
 }
 
-@keyframes warning-pulse {
+@keyframes warning-flash-image {
   0%,
+  44%,
   100% {
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 132, 122, 0.2),
-      0 8px 14px rgba(0, 0, 0, 0.22),
-      0 0 0 rgba(255, 109, 95, 0);
+    opacity: 0;
   }
 
-  50% {
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 169, 160, 0.62),
-      0 12px 20px rgba(0, 0, 0, 0.3),
-      0 0 22px rgba(255, 109, 95, 0.3);
+  45%,
+  88% {
+    opacity: 1;
   }
 }
 
-@keyframes beacon-blink {
+@keyframes warning-flash-frame {
   0%,
+  44%,
   100% {
-    opacity: 0.7;
-    transform: scale(0.96);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   }
 
-  50% {
-    opacity: 1;
-    transform: scale(1.06);
+  45%,
+  88% {
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 182, 175, 0.48),
+      0 0 20px rgba(255, 109, 95, 0.24);
   }
 }
 
@@ -287,52 +285,40 @@ summary {
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
   }
 
-  .plugin-preview-card-warning {
-    background:
-      radial-gradient(circle at top center, rgba(255, 109, 95, 0.14), transparent 48%),
-      rgba(255, 255, 255, 0.035);
-  }
-
   .plugin-preview-visual {
     @apply relative flex min-h-[132px] items-center justify-center overflow-hidden rounded-[16px];
     background: rgba(255, 255, 255, 0.02);
   }
 
-  .plugin-preview-alert-copy,
-  .streamdeck-alert-copy {
-    @apply absolute inset-x-2 bottom-2 flex items-center gap-2 rounded-[14px] px-2.5 py-2 text-left text-white;
-    background: rgba(6, 10, 14, 0.82);
-    box-shadow:
-      inset 0 0 0 1px rgba(255, 255, 255, 0.06),
-      0 10px 24px rgba(0, 0, 0, 0.28);
-    backdrop-filter: blur(8px);
-  }
-
-  .plugin-preview-alert-copy strong,
-  .streamdeck-alert-copy strong {
-    @apply block text-[0.66rem] font-semibold uppercase tracking-[0.2em];
-  }
-
-  .plugin-preview-alert-copy span,
-  .streamdeck-alert-copy span {
-    @apply block text-[0.54rem] font-medium uppercase tracking-[0.16em] text-white/74;
-  }
-
-  .alert-beacon {
-    @apply inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm;
-    background: rgba(255, 109, 95, 0.18);
-    box-shadow: inset 0 0 0 1px rgba(255, 153, 144, 0.3);
-    animation: beacon-blink 1.4s ease-in-out infinite;
+  .plugin-preview-tile-stack {
+    @apply relative;
+    width: 7rem;
+    height: 7rem;
   }
 
   .plugin-preview-tile {
-    width: 7rem;
-    height: 7rem;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
   }
 
-  .warning-pulse {
-    animation: warning-pulse 1.8s ease-in-out infinite;
+  .plugin-preview-alert-tile,
+  .streamdeck-key-alert-image {
+    @apply absolute inset-0;
+    opacity: 0;
+    animation: warning-flash-image 2.1s linear infinite;
+  }
+
+  .plugin-preview-flash-label {
+    @apply absolute bottom-2 rounded-full px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white;
+    background: rgba(124, 25, 37, 0.78);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 214, 210, 0.16),
+      0 8px 18px rgba(0, 0, 0, 0.24);
+  }
+
+  .warning-flash-frame {
+    animation: warning-flash-frame 2.1s linear infinite;
   }
 
   .plugin-preview-label {
@@ -390,13 +376,6 @@ summary {
     box-shadow:
       inset 0 0 0 1px rgba(255, 255, 255, 0.04),
       0 8px 14px rgba(0, 0, 0, 0.22);
-  }
-
-  .streamdeck-key-warning {
-    background:
-      radial-gradient(circle at top center, rgba(255, 109, 95, 0.18), transparent 48%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0)),
-      #030608;
   }
 
   .streamdeck-key-visual {
@@ -549,8 +528,13 @@ summary {
 }
 
 @media (min-width: 768px) {
-  .plugin-preview-tile {
+  .plugin-preview-tile-stack {
     width: 7.5rem;
     height: 7.5rem;
+  }
+
+  .plugin-preview-tile {
+    width: 100%;
+    height: 100%;
   }
 }

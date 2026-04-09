@@ -62,24 +62,22 @@
                   v-for="tile in board.tiles"
                   :key="`${board.title}-${tile.label}`"
                   class="streamdeck-key"
-                  :class="{ 'streamdeck-key-warning warning-pulse': tile.overlayImage }"
                 >
-                  <div class="streamdeck-key-visual">
+                  <div
+                    class="streamdeck-key-visual"
+                    :class="{ 'warning-flash-frame': tile.overlayImage }"
+                  >
                     <img
                       :alt="tile.label"
-                      :src="tile.overlayImage ?? tile.image"
+                      :src="tile.image"
                       class="streamdeck-key-image"
                     />
-                    <div
+                    <img
                       v-if="tile.overlayImage"
-                      class="streamdeck-alert-copy"
-                    >
-                      <span class="alert-beacon" aria-hidden="true">🚨</span>
-                      <div>
-                        <strong>{{ tile.label }}</strong>
-                        <span>{{ tile.alertDetail ?? "Warning" }}</span>
-                      </div>
-                    </div>
+                      alt=""
+                      :src="tile.overlayImage"
+                      class="streamdeck-key-image streamdeck-key-alert-image"
+                    />
                   </div>
                 </div>
               </div>
