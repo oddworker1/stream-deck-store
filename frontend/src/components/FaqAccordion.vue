@@ -10,9 +10,10 @@
         <span>{{ item.question }}</span>
         <span class="faq-item-mark">+</span>
       </summary>
-      <div class="faq-answer">
-        {{ item.answer }}
-      </div>
+      <div
+        class="faq-answer"
+        v-html="item.answerHtml ?? item.answer"
+      />
     </details>
   </div>
 </template>
