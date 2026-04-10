@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-labelledby="title desc">
+  <title id="title">Display layout tuning</title>
+  <desc id="desc">Illustration showing title template, polling, decimals, and a clean tile preview.</desc>
+  <rect width="720" height="420" rx="28" fill="#0d1422" />
+  <rect x="54" y="42" width="612" height="336" rx="24" fill="#111b2c" stroke="#ffffff" stroke-opacity="0.08" />
+  <text x="88" y="84" fill="#f5fbff" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">Display</text>
+  <text x="88" y="110" fill="#9db0ca" font-family="Segoe UI, Arial, sans-serif" font-size="14">Set the content first, then tune readability with style, size, position, and color.</text>
+
+  <rect x="88" y="136" width="330" height="196" rx="20" fill="#132034" stroke="#7ce8d7" stroke-opacity="0.16" />
+  <text x="112" y="168" fill="#8db4d9" font-family="Segoe UI, Arial, sans-serif" font-size="12" letter-spacing="1">TITLE TEMPLATE</text>
+  <text x="112" y="198" fill="#f5fbff" font-family="Consolas, 'Courier New', monospace" font-size="20">{deviceName}</text>
+  <text x="112" y="224" fill="#f5fbff" font-family="Consolas, 'Courier New', monospace" font-size="20">{value}</text>
+  <rect x="112" y="250" width="130" height="30" rx="15" fill="#1b3150" />
+  <text x="130" y="270" fill="#edf6ff" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600">Polling: 30 seconds</text>
+  <rect x="252" y="250" width="92" height="30" rx="15" fill="#1b3150" />
+  <text x="277" y="270" fill="#edf6ff" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600">Decimals: 1</text>
+  <rect x="112" y="292" width="126" height="30" rx="15" fill="#2e253f" />
+  <text x="133" y="312" fill="#f5ebff" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="600">Tile Style: Minimal</text>
+
+  <rect x="454" y="136" width="176" height="176" rx="28" fill="#0c1220" stroke="#ffffff" stroke-opacity="0.08" />
+  <rect x="472" y="154" width="140" height="140" rx="24" fill="#10192b" />
+  <text x="542" y="194" fill="#f5fbff" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">Kitchen</text>
+  <text x="542" y="226" fill="#9eead5" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="700" text-anchor="middle">21.4 C</text>
+  <text x="542" y="254" fill="#a1b4d0" font-family="Segoe UI, Arial, sans-serif" font-size="14" text-anchor="middle">Simple, readable, fast to scan</text>
+
+  <text x="454" y="340" fill="#98accc" font-family="Segoe UI, Arial, sans-serif" font-size="12">Use colors as state signals, not decoration.</text>
+</svg>

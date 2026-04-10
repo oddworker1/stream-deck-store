@@ -532,6 +532,163 @@ summary {
     color: #dff8ff;
   }
 
+  .faq-guide {
+    display: grid;
+    gap: 0.95rem;
+    margin-top: 0.15rem;
+  }
+
+  p.faq-intro-copy {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .faq-badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .faq-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.28rem;
+    padding: 0.42rem 0.65rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.03);
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .faq-badge-plus {
+    color: #fff3ee;
+    border-color: rgba(255, 109, 95, 0.38);
+    background: rgba(255, 109, 95, 0.14);
+  }
+
+  .faq-figure,
+  .faq-card,
+  .faq-gallery-card,
+  .faq-compare {
+    margin: 0;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.05rem;
+    background: rgba(255, 255, 255, 0.025);
+  }
+
+  .faq-figure {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .faq-figure img {
+    width: min(100%, 24rem);
+    margin: 0 auto;
+    border-radius: 0.85rem;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  }
+
+  .faq-figure figcaption,
+  .faq-gallery-card figcaption {
+    display: grid;
+    gap: 0.32rem;
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .faq-callout {
+    display: grid;
+    gap: 0.35rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(86, 216, 255, 0.18);
+    border-radius: 1rem;
+    background: linear-gradient(180deg, rgba(86, 216, 255, 0.08), rgba(0, 0, 0, 0));
+  }
+
+  .faq-callout strong,
+  .faq-card h3,
+  .faq-gallery-card strong,
+  .faq-compare th {
+    color: var(--text-primary);
+  }
+
+  .faq-grid,
+  .faq-gallery {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .faq-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .faq-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .faq-gallery-two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .faq-card {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .faq-card h3 {
+    margin: 0;
+    font-size: 0.98rem;
+  }
+
+  .faq-guide .faq-card p {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+
+  .faq-steps,
+  .faq-checklist {
+    margin: 0;
+    padding-left: 1.15rem;
+    color: var(--text-secondary);
+    display: grid;
+    gap: 0.42rem;
+    line-height: 1.65;
+  }
+
+  .faq-compare {
+    overflow-x: auto;
+  }
+
+  .faq-compare table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .faq-compare th,
+  .faq-compare td {
+    padding: 0.72rem 0.7rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .faq-compare td {
+    color: var(--text-secondary);
+  }
+
+  .faq-gallery-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 0.85rem;
+    background: #0d111a;
+  }
+
   .template-guide {
     display: grid;
     gap: 0.95rem;
@@ -718,6 +875,9 @@ summary {
 }
 
 @media (max-width: 900px) {
+  .faq-grid,
+  .faq-gallery,
+  .faq-gallery-two,
   .template-sections,
   .template-recipes,
   .template-gallery {
