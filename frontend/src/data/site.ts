@@ -102,6 +102,16 @@ export const homeyPlugin: PluginRecord = {
       plus: "Included"
     },
     {
+      feature: "Background history graphs with custom range and time span",
+      free: "-",
+      plus: "Included"
+    },
+    {
+      feature: "Text badges and warning graph styling overrides",
+      free: "-",
+      plus: "Included"
+    },
+    {
       feature: "Custom text size, position, alignment, and colors",
       free: "-",
       plus: "Included"
@@ -170,14 +180,14 @@ export const homeyPlugin: PluginRecord = {
     },
     {
       answer:
-        "Start with the template first, then adjust tile style, text size, and text position. Only add extra colors or icons when they communicate something useful faster than text alone.",
+        "Start with the template first, then adjust tile style, graph background, text badge, and warning styling only where they improve readability.",
       answerHtml: homeyDisplayLayoutFaqHtml,
       id: "faq-display-layout",
       question: "What is the best way to keep the tile readable after adding templates?"
     },
     {
       answer:
-        "Plus supports separate warning rules for over and under states, with type-aware comparisons for number, boolean, and text values.",
+        "Plus supports separate warning rules for over and under states, with type-aware comparisons and dedicated warning graph styling overrides.",
       answerHtml: homeyWarningRulesFaqHtml,
       id: "faq-warning-rules",
       question: "How do warning rules work?"
@@ -204,7 +214,7 @@ export const homeyPlugin: PluginRecord = {
       question: "Where do I get the Homey API key?"
     }
   ],
-  faqIntro: "Detailed setup, selection, display, warning, and troubleshooting guides for every Homey info button on Stream Deck.",
+  faqIntro: "Detailed setup, selection, display, graph, warning, and troubleshooting guides for every Homey info button on Stream Deck.",
   helpTopicMap: {
     actions: "faq-action-mode",
     display: "faq-display-template",
@@ -215,13 +225,13 @@ export const homeyPlugin: PluginRecord = {
   },
   icon: "/assets/homey/free-icon.png",
   id: "homey-pro-control",
-  listDescription: "Live Homey tiles for values, toggles, target writes, warnings, and room launchers.",
-  name: "Homey Pro Control",
+  listDescription: "Live Homey tiles for values, toggles, graph backgrounds, warnings, and room launchers.",
+  name: "Homey Pro",
   plusIcon: "/assets/homey/plus-icon.png",
   previewTiles: [
     {
       image: "/assets/homey/generated/homey-energy-live.svg",
-      label: "Live energy"
+      label: "Graph background"
     },
     {
       image: "/assets/homey/generated/homey-room-launcher.svg",
@@ -235,28 +245,33 @@ export const homeyPlugin: PluginRecord = {
     },
     {
       image: "/assets/homey/generated/homey-dimmer-target.svg",
-      label: "Dim target"
+      label: "Text badge"
     }
   ],
   salesHighlights: [
     {
       copy: "See power, climate, door, and status values directly on the key.",
-      emoji: "📟",
+      emoji: "+",
       title: "Live tiles"
     },
     {
-      copy: "Toggle a device, run a flow, or send an exact value without opening Homey first.",
-      emoji: "🎛️",
-      title: "Quick control"
+      copy: "Add background graphs, custom ranges, and time windows to make fast-changing values readable at a glance.",
+      emoji: "~",
+      title: "Graph backgrounds"
+    },
+    {
+      copy: "Use text badges and warning-specific graph styling when a graph needs to stay visible without killing legibility.",
+      emoji: "#",
+      title: "Readable overlays"
     },
     {
       copy: "Turn important states into clear alarm tiles that grab your eye when something changes.",
-      emoji: "🚨",
+      emoji: "!",
       title: "Alerts that stand out"
     },
     {
       copy: "Launch room or scene folders so the deck stays useful instead of crowded.",
-      emoji: "🗂️",
+      emoji: ">",
       title: "Room launchers"
     }
   ],
@@ -267,40 +282,40 @@ export const homeyPlugin: PluginRecord = {
     }
   ],
   salesIntro:
-    "A focused Stream Deck plugin for Homey Pro. Use it for live values, clean control tiles, warnings, and room launchers without turning the support site into a marketplace wall.",
+    "A focused Stream Deck plugin for Homey Pro. Use it for live values, graph-backed tiles, readable overlays, warnings, and room launchers without turning the support site into a marketplace wall.",
   setupHighlights: [
     {
       copy: "Add your local Homey address and a Personal Access Token.",
-      emoji: "🔌",
+      emoji: "1",
       title: "1. Connect Homey"
     },
     {
       copy: "Pick the device and capability you want to show or control.",
-      emoji: "🎯",
+      emoji: "2",
       title: "2. Choose the tile"
     },
     {
       copy: "Decide if the key should display, toggle, or set an exact target value.",
-      emoji: "⚙️",
+      emoji: "3",
       title: "3. Choose behavior"
     },
     {
-      copy: "Finish with title text, units, icons, colors, and warning rules.",
-      emoji: "✨",
+      copy: "Finish with title text, units, icons, graph backgrounds, text badges, and warning rules.",
+      emoji: "4",
       title: "4. Make it yours"
     }
   ],
   showcaseBoards: [
     {
-      caption: "Live values, targets, and warning tiles on one deck.",
+      caption: "Live values, graph backgrounds, targets, and warning tiles on one deck.",
       tiles: [
         {
           image: "/assets/homey/generated/homey-energy-live.svg",
-          label: "Live energy"
+          label: "Energy graph"
         },
         {
           image: "/assets/homey/generated/homey-solar-export.svg",
-          label: "Solar export"
+          label: "Graph + fill"
         },
         {
           image: "/assets/homey/generated/homey-climate.svg",
@@ -314,17 +329,17 @@ export const homeyPlugin: PluginRecord = {
         },
         {
           image: "/assets/homey/generated/homey-dimmer-target.svg",
-          label: "Dim target"
+          label: "Text badge"
         },
         {
           image: "/assets/homey/generated/homey-door-status.svg",
           label: "Door status"
         }
       ],
-      title: "Power wall"
+      title: "Graph wall"
     },
     {
-      caption: "Room access and quick control without cluttering the deck.",
+      caption: "Room access, readable graph tiles, and quick control without cluttering the deck.",
       tiles: [
         {
           image: "/assets/homey/generated/homey-room-launcher.svg",
@@ -340,15 +355,15 @@ export const homeyPlugin: PluginRecord = {
         },
         {
           image: "/assets/homey/generated/homey-dimmer-target.svg",
-          label: "Dim target"
+          label: "Text badge"
         },
         {
           image: "/assets/homey/generated/homey-energy-live.svg",
-          label: "Live energy"
+          label: "Energy graph"
         },
         {
           image: "/assets/homey/generated/homey-solar-export.svg",
-          label: "Solar export"
+          label: "Graph + fill"
         }
       ],
       title: "Room control"

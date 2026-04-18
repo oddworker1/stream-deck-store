@@ -417,10 +417,10 @@ export const homeyTitleTemplateFaqHtml = String.raw`
 
 export const homeyDisplayLayoutFaqHtml = String.raw`
   <div class="faq-guide">
-    <p class="faq-intro-copy">Readable tiles come from the order of decisions: content first, structure second, styling last. Do not try to fix a crowded template only with colors or font size.</p>
+    <p class="faq-intro-copy">Readable tiles come from the order of decisions: content first, structure second, styling last. Do not try to fix a crowded template only with colors, graph effects, or font size.</p>
     <figure class="faq-figure">
       <img alt="Display layout tuning with title template, polling, and readable preview" loading="lazy" src="/assets/homey/faq-display-layout.svg" />
-      <figcaption>The cleanest tiles usually start with a simple two-line template and only add more styling when the meaning is already clear.</figcaption>
+      <figcaption>The cleanest tiles usually start with a simple two-line template and only add graph backgrounds or text badges when the meaning is already clear.</figcaption>
     </figure>
     <div class="faq-grid">
       <section class="faq-card">
@@ -428,8 +428,9 @@ export const homeyDisplayLayoutFaqHtml = String.raw`
         <ol class="faq-steps">
           <li>Make the title template readable with real data first.</li>
           <li>Pick a tile style that matches the amount of text you need.</li>
-          <li>Set decimals and empty fallback text.</li>
-          <li>Only then tune text size, position, alignment, and colors.</li>
+          <li>Decide whether a graph background adds useful trend context or only noise.</li>
+          <li>Use a text badge when the graph or background color starts fighting the title.</li>
+          <li>Only then tune decimals, alignment, text size, and colors.</li>
         </ol>
       </section>
       <section class="faq-card">
@@ -438,6 +439,7 @@ export const homeyDisplayLayoutFaqHtml = String.raw`
           <li><strong>Polling:</strong> start at <code>30 seconds</code> unless the value really needs a faster fallback refresh.</li>
           <li><strong>Decimals:</strong> usually <code>1</code> for temperature and <code>0</code> for counts, alarms, and battery.</li>
           <li><strong>Empty:</strong> keep a clear fallback such as <code>--</code>.</li>
+          <li><strong>Text badge:</strong> turn it on when the graph makes the title harder to scan.</li>
           <li><strong>Color:</strong> use it as a state signal, not as decoration.</li>
         </ul>
       </section>
@@ -446,12 +448,16 @@ export const homeyDisplayLayoutFaqHtml = String.raw`
       <strong>Refresh behavior</strong>
       <span>The plugin shares refresh work across keys and also listens to realtime events where Homey exposes them. Faster polling is helpful only when the value truly changes fast and you need a tighter fallback.</span>
     </div>
+    <div class="faq-callout">
+      <strong>Graph tip</strong>
+      <span>Graph Background works best when it stays behind the content. Keep the fill subtle, keep the line readable, and use the text badge instead of making the whole graph opaque.</span>
+    </div>
   </div>
 `;
 
 export const homeyWarningRulesFaqHtml = String.raw`
   <div class="faq-guide">
-    <p class="faq-intro-copy">Warning rules are independent over and under states. That means one tile can react to both extremes, with separate thresholds, colors, text size, and icons.</p>
+    <p class="faq-intro-copy">Warning rules are independent over and under states. That means one tile can react to both extremes, with separate thresholds, colors, text size, icons, and graph styling.</p>
     <div class="faq-badge-row">
       <span class="faq-badge faq-badge-plus">Plus feature</span>
       <span class="faq-badge">Over + under states</span>
@@ -460,7 +466,7 @@ export const homeyWarningRulesFaqHtml = String.raw`
     </div>
     <figure class="faq-figure">
       <img alt="Warning rule setup with over and under examples" loading="lazy" src="/assets/homey/faq-warning-rules.svg" />
-      <figcaption>Each direction has its own enable switch, compare type, condition, styling, and optional flash settings.</figcaption>
+      <figcaption>Each direction has its own enable switch, compare type, condition, styling, graph overrides, and optional flash settings.</figcaption>
     </figure>
     <div class="faq-grid">
       <section class="faq-card">
@@ -470,7 +476,7 @@ export const homeyWarningRulesFaqHtml = String.raw`
           <li>Choose whether the rule should watch the primary value or the optional second value.</li>
           <li>Pick the compare type: number, boolean, or text.</li>
           <li>Set the condition and the threshold or expected value.</li>
-          <li>Choose the warning colors, text, and icon that should take over while active.</li>
+          <li>Choose the warning colors, text, icon, and graph overrides that should take over while active.</li>
         </ol>
       </section>
       <section class="faq-card">
@@ -485,7 +491,7 @@ export const homeyWarningRulesFaqHtml = String.raw`
     </div>
     <div class="faq-callout">
       <strong>Numeric rules use rendered values</strong>
-      <span>For numeric comparisons, the plugin uses the rendered numeric value, including the normalized <code>0-100</code> percentage scale for dimmers and covers.</span>
+      <span>For numeric comparisons, the plugin uses the rendered numeric value, including the normalized <code>0-100</code> percentage scale for dimmers and covers. If Graph Background is enabled, warnings can also override the graph line color, fill color, thickness, and opacity while active.</span>
     </div>
   </div>
 `;

@@ -22,7 +22,7 @@ export const router = createRouter({
       name: "plugin-homey",
       component: PluginDetailPage,
       meta: {
-        title: "Homey Pro Control | Adapted"
+        title: "Homey Pro | Adapted"
       }
     },
     {
@@ -31,7 +31,7 @@ export const router = createRouter({
       name: "plugin-homey-faq",
       component: FaqPage,
       meta: {
-        title: "Homey FAQ | Adapted"
+        title: "Homey Pro FAQ | Adapted"
       }
     },
     {
