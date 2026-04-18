@@ -116,6 +116,46 @@ export const homeySelectDeviceFaqHtml = String.raw`
   </div>
 `;
 
+export const homeyFamilyGuestsFaqHtml = String.raw`
+  <div class="faq-guide">
+    <p class="faq-intro-copy">Homey Family &amp; Guests tiles read the people list from Homey itself, so you can track who is home, who is away, who is asleep, and whether guests are currently present.</p>
+    <div class="faq-badge-row">
+      <span class="faq-badge">Family &amp; Guests</span>
+      <span class="faq-badge">Group or person</span>
+      <span class="faq-badge">Family only or guests only</span>
+      <span class="faq-badge">Graph-friendly counts</span>
+    </div>
+    <figure class="faq-figure">
+      <img alt="Homey Family and Guests tile showing mixed home and away status" loading="lazy" src="/assets/homey/generated/homey-family-guests.svg" />
+      <figcaption>The tile can summarize the whole Family &amp; Guests list, only family, only guests, or one selected person.</figcaption>
+    </figure>
+    <div class="faq-grid">
+      <section class="faq-card">
+        <h3>What the tile can show</h3>
+        <ul class="faq-checklist">
+          <li><strong>Group status:</strong> <code>HOME</code>, <code>AWAY</code>, <code>ASLEEP</code>, or <code>MIXED</code>.</li>
+          <li><strong>Counts:</strong> how many are home, away, or asleep.</li>
+          <li><strong>Person mode:</strong> one selected family member or guest.</li>
+          <li><strong>Scope:</strong> everyone, family only, or guests only.</li>
+        </ul>
+      </section>
+      <section class="faq-card">
+        <h3>Recommended setups</h3>
+        <ol class="faq-steps">
+          <li>Use <strong>Group</strong> + <strong>Family</strong> when one key should answer whether the household is in or out.</li>
+          <li>Use <strong>Group</strong> + <strong>Guests</strong> when you only care whether visitors are currently present.</li>
+          <li>Use <strong>Person</strong> when one named person needs their own tile.</li>
+          <li>Use <strong>Home Count</strong> or <strong>Away Count</strong> if you want a numeric output that can also feed graph backgrounds in Plus.</li>
+        </ol>
+      </section>
+    </div>
+    <div class="faq-callout">
+      <strong>Data source</strong>
+      <span>The plugin reads Homey's Family &amp; Guests user data directly, including <code>present</code>, <code>asleep</code>, and role information such as guest versus non-guest.</span>
+    </div>
+  </div>
+`;
+
 export const homeySecondValueFaqHtml = String.raw`
   <div class="faq-guide">
     <p class="faq-intro-copy">A second value is useful when it answers a second question at a glance. It is not useful when it just makes the tile harder to scan.</p>

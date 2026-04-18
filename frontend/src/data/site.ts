@@ -6,6 +6,7 @@ import {
   homeyDimInputFaqHtml,
   homeyDisplayLayoutFaqHtml,
   homeyEmptyCatalogFaqHtml,
+  homeyFamilyGuestsFaqHtml,
   homeySecondValueFaqHtml,
   homeySelectDeviceFaqHtml,
   homeyTitleTemplateFaqHtml,
@@ -152,6 +153,13 @@ export const homeyPlugin: PluginRecord = {
     },
     {
       answer:
+        "Use Display Family & Guests when the tile should follow Homey's people status instead of a device capability.",
+      answerHtml: homeyFamilyGuestsFaqHtml,
+      id: "faq-family-guests",
+      question: "How do Family & Guests tiles work?"
+    },
+    {
+      answer:
         "Use a second value only when it adds useful context. If the tile starts feeling crowded, leave it out.",
       answerHtml: homeySecondValueFaqHtml,
       id: "faq-second-value",
@@ -214,7 +222,7 @@ export const homeyPlugin: PluginRecord = {
       question: "Where do I get the Homey API key?"
     }
   ],
-  faqIntro: "Detailed setup, selection, display, graph, warning, and troubleshooting guides for every Homey info button on Stream Deck.",
+  faqIntro: "Detailed setup, device, Family & Guests, graph, warning, and troubleshooting guides for every Homey Pro info button on Stream Deck.",
   helpTopicMap: {
     actions: "faq-action-mode",
     display: "faq-display-template",
@@ -225,13 +233,17 @@ export const homeyPlugin: PluginRecord = {
   },
   icon: "/assets/homey/free-icon.png",
   id: "homey-pro-control",
-  listDescription: "Live Homey tiles for values, toggles, graph backgrounds, warnings, and room launchers.",
+  listDescription: "Live Homey tiles for values, Family & Guests presence, toggles, graph backgrounds, warnings, and room launchers.",
   name: "Homey Pro",
   plusIcon: "/assets/homey/plus-icon.png",
   previewTiles: [
     {
       image: "/assets/homey/generated/homey-energy-live.svg",
       label: "Graph background"
+    },
+    {
+      image: "/assets/homey/generated/homey-family-guests.svg",
+      label: "Family & Guests"
     },
     {
       image: "/assets/homey/generated/homey-room-launcher.svg",
@@ -253,6 +265,11 @@ export const homeyPlugin: PluginRecord = {
       copy: "See power, climate, door, and status values directly on the key.",
       emoji: "+",
       title: "Live tiles"
+    },
+    {
+      copy: "Show Family & Guests as one mixed home or away tile, one guest tile, or one named person tile.",
+      emoji: "@",
+      title: "Presence tiles"
     },
     {
       copy: "Add background graphs, custom ranges, and time windows to make fast-changing values readable at a glance.",
@@ -282,7 +299,7 @@ export const homeyPlugin: PluginRecord = {
     }
   ],
   salesIntro:
-    "A focused Stream Deck plugin for Homey Pro. Use it for live values, graph-backed tiles, readable overlays, warnings, and room launchers without turning the support site into a marketplace wall.",
+    "A focused Stream Deck plugin for Homey Pro. Use it for live values, Family & Guests presence, graph-backed tiles, readable overlays, warnings, and room launchers without turning the support site into a marketplace wall.",
   setupHighlights: [
     {
       copy: "Add your local Homey address and a Personal Access Token.",
@@ -292,7 +309,7 @@ export const homeyPlugin: PluginRecord = {
     {
       copy: "Pick the device and capability you want to show or control.",
       emoji: "2",
-      title: "2. Choose the tile"
+      title: "2. Choose the source"
     },
     {
       copy: "Decide if the key should display, toggle, or set an exact target value.",
@@ -309,6 +326,10 @@ export const homeyPlugin: PluginRecord = {
     {
       caption: "Live values, graph backgrounds, targets, and warning tiles on one deck.",
       tiles: [
+        {
+          image: "/assets/homey/generated/homey-family-guests.svg",
+          label: "Presence"
+        },
         {
           image: "/assets/homey/generated/homey-energy-live.svg",
           label: "Energy graph"
@@ -341,6 +362,10 @@ export const homeyPlugin: PluginRecord = {
     {
       caption: "Room access, readable graph tiles, and quick control without cluttering the deck.",
       tiles: [
+        {
+          image: "/assets/homey/generated/homey-family-guests.svg",
+          label: "Presence"
+        },
         {
           image: "/assets/homey/generated/homey-room-launcher.svg",
           label: "Room launcher"
