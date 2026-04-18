@@ -7,6 +7,7 @@ import {
   homeyDisplayLayoutFaqHtml,
   homeyEmptyCatalogFaqHtml,
   homeyFamilyGuestsFaqHtml,
+  homeyGraphBadgeFaqHtml,
   homeySecondValueFaqHtml,
   homeySelectDeviceFaqHtml,
   homeyTitleTemplateFaqHtml,
@@ -39,6 +40,13 @@ export type ComparisonRow = {
   plus: string;
 };
 
+export type ComparisonVisual = {
+  copy: string;
+  image: string;
+  tag: string;
+  title: string;
+};
+
 export type ShowcaseBoard = {
   caption: string;
   title: string;
@@ -55,9 +63,11 @@ export type FaqItem = {
 export type PluginRecord = {
   badges: string[];
   comparisonIntro: string;
+  comparisonVisuals: ComparisonVisual[];
   comparisonRows: ComparisonRow[];
   contactEmail: string;
   faq: FaqItem[];
+  faqHighlights: InfoCard[];
   faqIntro: string;
   helpTopicMap: Record<string, string>;
   icon: string;
@@ -76,6 +86,32 @@ export type PluginRecord = {
 export const homeyPlugin: PluginRecord = {
   badges: ["Free + Plus", "Home automation"],
   comparisonIntro: "Plus includes everything in Free and adds the extras below.",
+  comparisonVisuals: [
+    {
+      copy: "Put trend context behind the value with custom time span, range, line color, fill, and opacity controls.",
+      image: "/assets/homey/generated/homey-energy-live.svg",
+      tag: "Plus",
+      title: "Graph backgrounds"
+    },
+    {
+      copy: "Add a readable text plate when a graph or rich background would otherwise compete with the main label.",
+      image: "/assets/homey/generated/homey-dimmer-target.svg",
+      tag: "Plus",
+      title: "Text badges"
+    },
+    {
+      copy: "Let over and under states replace colors, flash behavior, and even graph styling when something crosses the limit.",
+      image: "/assets/homey/generated/homey-energy-warning-over.svg",
+      tag: "Plus",
+      title: "Warning overrides"
+    },
+    {
+      copy: "Launch a room or scene folder from one key instead of burning several keys on fixed shortcuts.",
+      image: "/assets/homey/generated/homey-room-launcher.svg",
+      tag: "Plus",
+      title: "Room launchers"
+    }
+  ],
   comparisonRows: [
     {
       feature: "Second value from the same device",
@@ -160,6 +196,13 @@ export const homeyPlugin: PluginRecord = {
     },
     {
       answer:
+        "Use Graph Background for trend context, then add a text badge when the tile needs stronger foreground contrast.",
+      answerHtml: homeyGraphBadgeFaqHtml,
+      id: "faq-graph-background",
+      question: "How do graph backgrounds and text badges work?"
+    },
+    {
+      answer:
         "Use a second value only when it adds useful context. If the tile starts feeling crowded, leave it out.",
       answerHtml: homeySecondValueFaqHtml,
       id: "faq-second-value",
@@ -220,6 +263,28 @@ export const homeyPlugin: PluginRecord = {
       answerHtml: homeyApiKeyFaqHtml,
       id: "faq-api-key",
       question: "Where do I get the Homey API key?"
+    }
+  ],
+  faqHighlights: [
+    {
+      copy: "Group, family-only, guest-only, or one named person.",
+      emoji: "@",
+      title: "Family & Guests"
+    },
+    {
+      copy: "Custom time span, custom range, line, fill, and positioning.",
+      emoji: "~",
+      title: "Graph backgrounds"
+    },
+    {
+      copy: "Readable title plates for busy or animated tile backgrounds.",
+      emoji: "#",
+      title: "Text badges"
+    },
+    {
+      copy: "Separate over and under styling, flash, and graph overrides.",
+      emoji: "!",
+      title: "Warning states"
     }
   ],
   faqIntro: "Detailed setup, device, Family & Guests, graph, warning, and troubleshooting guides for every Homey Pro info button on Stream Deck.",
@@ -324,7 +389,7 @@ export const homeyPlugin: PluginRecord = {
   ],
   showcaseBoards: [
     {
-      caption: "Live values, graph backgrounds, targets, and warning tiles on one deck.",
+      caption: "Live values, graph backgrounds, targets, warning states, and readable tile labels on one deck.",
       tiles: [
         {
           image: "/assets/homey/generated/homey-family-guests.svg",
@@ -357,41 +422,7 @@ export const homeyPlugin: PluginRecord = {
           label: "Door status"
         }
       ],
-      title: "Graph wall"
-    },
-    {
-      caption: "Room access, readable graph tiles, and quick control without cluttering the deck.",
-      tiles: [
-        {
-          image: "/assets/homey/generated/homey-family-guests.svg",
-          label: "Presence"
-        },
-        {
-          image: "/assets/homey/generated/homey-room-launcher.svg",
-          label: "Room launcher"
-        },
-        {
-          image: "/assets/homey/generated/homey-climate.svg",
-          label: "Climate"
-        },
-        {
-          image: "/assets/homey/generated/homey-door-status.svg",
-          label: "Door status"
-        },
-        {
-          image: "/assets/homey/generated/homey-dimmer-target.svg",
-          label: "Text badge"
-        },
-        {
-          image: "/assets/homey/generated/homey-energy-live.svg",
-          label: "Energy graph"
-        },
-        {
-          image: "/assets/homey/generated/homey-solar-export.svg",
-          label: "Graph + fill"
-        }
-      ],
-      title: "Room control"
+      title: "Homey Pro deck"
     }
   ]
 };

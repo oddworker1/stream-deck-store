@@ -78,6 +78,12 @@
                       :src="tile.overlayImage"
                       class="streamdeck-key-image streamdeck-key-alert-image"
                     />
+                    <div class="streamdeck-key-meta">
+                      <span v-if="tile.alertDetail" class="streamdeck-key-kicker">
+                        {{ tile.alertDetail }}
+                      </span>
+                      <strong class="streamdeck-key-label">{{ tile.label }}</strong>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -127,6 +133,47 @@
         <p class="comparison-intro">
           {{ plugin.comparisonIntro }}
         </p>
+
+        <div class="comparison-hero">
+          <section class="comparison-summary-card">
+            <span class="comparison-summary-badge">Plus extras</span>
+            <h3 class="comparison-summary-title">
+              Build richer dashboard tiles without crowding the deck
+            </h3>
+            <p class="comparison-summary-copy">
+              Plus is where the visual control lives: trend graphs, readable text plates,
+              warning-specific graph styling, second values, and room launchers.
+            </p>
+
+            <div class="comparison-summary-list" aria-label="Plus feature highlights">
+              <span
+                v-for="row in plugin.comparisonRows.slice(0, 6)"
+                :key="row.feature"
+                class="comparison-summary-pill"
+              >
+                {{ row.feature }}
+              </span>
+            </div>
+          </section>
+
+          <div class="comparison-visual-grid">
+            <article
+              v-for="item in plugin.comparisonVisuals"
+              :key="item.title"
+              class="comparison-visual-card"
+            >
+              <div class="comparison-visual-frame">
+                <img :src="item.image" :alt="item.title" class="comparison-visual-image" />
+                <span class="comparison-visual-tag">{{ item.tag }}</span>
+              </div>
+              <div class="comparison-visual-copy">
+                <strong class="comparison-visual-title">{{ item.title }}</strong>
+                <p class="comparison-visual-text">{{ item.copy }}</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
         <div class="comparison-table-wrap">
           <table class="comparison-table">
             <thead>

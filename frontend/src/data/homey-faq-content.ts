@@ -156,6 +156,59 @@ export const homeyFamilyGuestsFaqHtml = String.raw`
   </div>
 `;
 
+export const homeyGraphBadgeFaqHtml = String.raw`
+  <div class="faq-guide">
+    <p class="faq-intro-copy">Graph Background is the trend layer behind the tile content. Text Badge is the readable foreground plate you can add when the graph or tile styling starts competing with the title.</p>
+    <div class="faq-badge-row">
+      <span class="faq-badge faq-badge-plus">Plus feature</span>
+      <span class="faq-badge">Custom time span</span>
+      <span class="faq-badge">Custom range</span>
+      <span class="faq-badge">Line + fill styling</span>
+      <span class="faq-badge">Readable text badge</span>
+    </div>
+    <div class="faq-gallery faq-gallery-two">
+      <figure class="faq-gallery-card">
+        <img alt="Graph background example on a Homey Pro tile" loading="lazy" src="/assets/homey/generated/homey-energy-live.svg" />
+        <figcaption>
+          <strong>Trend context</strong>
+          <span>Use the graph when the history matters, not only the current number.</span>
+        </figcaption>
+      </figure>
+      <figure class="faq-gallery-card">
+        <img alt="Text badge example on a Homey Pro tile" loading="lazy" src="/assets/homey/generated/homey-dimmer-target.svg" />
+        <figcaption>
+          <strong>Readable overlay</strong>
+          <span>Use the text badge when the title needs stronger contrast than the graph alone can provide.</span>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="faq-grid">
+      <section class="faq-card">
+        <h3>What you can control</h3>
+        <ul class="faq-checklist">
+          <li><strong>Time span:</strong> any minute value from short windows to long history views.</li>
+          <li><strong>Range:</strong> auto scale or your own <code>from</code> and <code>to</code> values.</li>
+          <li><strong>Graph style:</strong> line color, line width, opacity, fill color, fill opacity, and graph height.</li>
+          <li><strong>Layout:</strong> keep the graph as a background so the value stays primary.</li>
+        </ul>
+      </section>
+      <section class="faq-card">
+        <h3>When to add the text badge</h3>
+        <ol class="faq-steps">
+          <li>Turn it on when the title becomes harder to scan over the graph.</li>
+          <li>Use a subtle badge fill first, then increase opacity only if needed.</li>
+          <li>Match the badge color to the tile mood instead of using pure black by default.</li>
+          <li>Let warnings override the graph styling when the state should become more aggressive.</li>
+        </ol>
+      </section>
+    </div>
+    <div class="faq-callout">
+      <strong>Warning interaction</strong>
+      <span>When warning rules are active, Plus can override graph line color, fill color, thickness, and opacity separately for the over and under states.</span>
+    </div>
+  </div>
+`;
+
 export const homeySecondValueFaqHtml = String.raw`
   <div class="faq-guide">
     <p class="faq-intro-copy">A second value is useful when it answers a second question at a glance. It is not useful when it just makes the tile harder to scan.</p>

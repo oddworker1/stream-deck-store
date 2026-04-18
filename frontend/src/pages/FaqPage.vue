@@ -19,6 +19,30 @@
             {{ plugin.faqIntro }}
           </p>
         </div>
+
+        <section class="faq-status-panel" aria-label="Current FAQ coverage">
+          <div class="faq-status-copy">
+            <strong>Updated for the current Homey Pro feature set</strong>
+            <p>
+              This FAQ now covers the latest Family & Guests tiles, graph backgrounds,
+              text badges, warning graph overrides, and the current room-launcher setup.
+            </p>
+          </div>
+
+          <div class="faq-status-grid">
+            <article
+              v-for="item in plugin.faqHighlights"
+              :key="item.title"
+              class="faq-status-card"
+            >
+              <span class="faq-status-icon" aria-hidden="true">{{ item.emoji }}</span>
+              <div>
+                <strong class="faq-status-title">{{ item.title }}</strong>
+                <p class="faq-status-text">{{ item.copy }}</p>
+              </div>
+            </article>
+          </div>
+        </section>
       </div>
     </section>
 
