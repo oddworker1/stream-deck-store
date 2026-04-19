@@ -22,10 +22,11 @@
 
         <section class="faq-status-panel" aria-label="Current FAQ coverage">
           <div class="faq-status-copy">
-            <strong>Updated for the current Homey Pro feature set</strong>
+            <strong>Updated for Homey Pro 1.2.0</strong>
             <p>
               This FAQ now covers the latest Family & Guests tiles, graph backgrounds,
-              text badges, warning graph overrides, and the current room-launcher setup.
+              text badges, local custom image paths for presence tiles, warning graph overrides,
+              and the current room-launcher setup.
             </p>
           </div>
 

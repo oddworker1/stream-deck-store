@@ -124,11 +124,24 @@ export const homeyFamilyGuestsFaqHtml = String.raw`
       <span class="faq-badge">Group or person</span>
       <span class="faq-badge">Family only or guests only</span>
       <span class="faq-badge">Graph-friendly counts</span>
+      <span class="faq-badge faq-badge-plus">Plus profile images</span>
     </div>
-    <figure class="faq-figure">
-      <img alt="Homey Family and Guests tile showing mixed home and away status" loading="lazy" src="/assets/homey/generated/homey-family-guests.svg" />
-      <figcaption>The tile can summarize the whole Family &amp; Guests list, only family, only guests, or one selected person.</figcaption>
-    </figure>
+    <div class="faq-gallery faq-gallery-two">
+      <figure class="faq-gallery-card">
+        <img alt="Homey Family and Guests tile showing mixed home and away status" loading="lazy" src="/assets/homey/generated/homey-family-guests.svg" />
+        <figcaption>
+          <strong>Group summary</strong>
+          <span>Use one tile for everyone, family only, or guests only.</span>
+        </figcaption>
+      </figure>
+      <figure class="faq-gallery-card">
+        <img alt="Homey Family and Guests person tile with a profile image" loading="lazy" src="/assets/homey/generated/homey-family-avatar.svg" />
+        <figcaption>
+          <strong>Person tile</strong>
+          <span>Plus can show a Homey avatar or a local custom image path on one named person tile.</span>
+        </figcaption>
+      </figure>
+    </div>
     <div class="faq-grid">
       <section class="faq-card">
         <h3>What the tile can show</h3>
@@ -149,9 +162,28 @@ export const homeyFamilyGuestsFaqHtml = String.raw`
         </ol>
       </section>
     </div>
+    <div class="faq-grid">
+      <section class="faq-card">
+        <h3>Plus profile image options</h3>
+        <ul class="faq-checklist">
+          <li>Turn on <strong>Profile Image</strong> in Display when the tile is in <strong>Person</strong> mode.</li>
+          <li>Choose <strong>Homey avatar</strong> to use the avatar stored on the user in Homey.</li>
+          <li>Choose <strong>Custom image</strong> and paste a full local path such as <code>C:\Users\you\Pictures\person.png</code>.</li>
+          <li>Adjust radius, border, and background so the person tile matches the rest of the deck.</li>
+        </ul>
+      </section>
+      <section class="faq-card">
+        <h3>When warnings are active</h3>
+        <ul class="faq-checklist">
+          <li>Warning over and warning under can replace the normal graph styling on the same tile.</li>
+          <li>On presence tiles, Plus can also swap the profile image frame or image styling in the warning state.</li>
+          <li>That makes it practical to highlight home, away, asleep, or another status without changing the tile type.</li>
+        </ul>
+      </section>
+    </div>
     <div class="faq-callout">
       <strong>Data source</strong>
-      <span>The plugin reads Homey's Family &amp; Guests user data directly, including <code>present</code>, <code>asleep</code>, and role information such as guest versus non-guest.</span>
+      <span>The plugin reads Homey's Family &amp; Guests user data directly, including <code>present</code>, <code>asleep</code>, avatar information, and role information such as guest versus non-guest.</span>
     </div>
   </div>
 `;
@@ -187,6 +219,7 @@ export const homeyGraphBadgeFaqHtml = String.raw`
         <h3>What you can control</h3>
         <ul class="faq-checklist">
           <li><strong>Time span:</strong> any minute value from short windows to long history views.</li>
+          <li><strong>Window size:</strong> from <code>1 minute</code> up to <code>30 days</code>.</li>
           <li><strong>Range:</strong> auto scale or your own <code>from</code> and <code>to</code> values.</li>
           <li><strong>Graph style:</strong> line color, line width, opacity, fill color, fill opacity, and graph height.</li>
           <li><strong>Layout:</strong> keep the graph as a background so the value stays primary.</li>
@@ -569,7 +602,7 @@ export const homeyWarningRulesFaqHtml = String.raw`
           <li>Choose whether the rule should watch the primary value or the optional second value.</li>
           <li>Pick the compare type: number, boolean, or text.</li>
           <li>Set the condition and the threshold or expected value.</li>
-          <li>Choose the warning colors, text, icon, and graph overrides that should take over while active.</li>
+          <li>Choose the warning colors, text, icon, graph overrides, and any presence-image overrides that should take over while active.</li>
         </ol>
       </section>
       <section class="faq-card">
@@ -584,7 +617,7 @@ export const homeyWarningRulesFaqHtml = String.raw`
     </div>
     <div class="faq-callout">
       <strong>Numeric rules use rendered values</strong>
-      <span>For numeric comparisons, the plugin uses the rendered numeric value, including the normalized <code>0-100</code> percentage scale for dimmers and covers. If Graph Background is enabled, warnings can also override the graph line color, fill color, thickness, and opacity while active.</span>
+      <span>For numeric comparisons, the plugin uses the rendered numeric value, including the normalized <code>0-100</code> percentage scale for dimmers and covers. If Graph Background is enabled, warnings can also override the graph line color, fill color, thickness, and opacity while active. On Family &amp; Guests person tiles, warning states can also override the profile image styling.</span>
     </div>
   </div>
 `;

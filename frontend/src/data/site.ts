@@ -76,6 +76,8 @@ export type PluginRecord = {
   name: string;
   plusIcon: string;
   previewTiles: PreviewTile[];
+  releaseNotes: InfoCard[];
+  releaseVersion: string;
   salesCtas: SupportLink[];
   salesHighlights: InfoCard[];
   salesIntro: string;
@@ -106,10 +108,10 @@ export const homeyPlugin: PluginRecord = {
       title: "Warning overrides"
     },
     {
-      copy: "Launch a room or scene folder from one key instead of burning several keys on fixed shortcuts.",
-      image: "/assets/homey/generated/homey-room-launcher.svg",
+      copy: "Use Homey avatars or a local custom image path on one named Family & Guests tile, then style the frame to fit the deck.",
+      image: "/assets/homey/generated/homey-family-avatar.svg",
       tag: "Plus",
-      title: "Room launchers"
+      title: "Profile images"
     }
   ],
   comparisonRows: [
@@ -145,6 +147,16 @@ export const homeyPlugin: PluginRecord = {
     },
     {
       feature: "Text badges and warning graph styling overrides",
+      free: "-",
+      plus: "Included"
+    },
+    {
+      feature: "Custom profile images on Family & Guests person tiles",
+      free: "-",
+      plus: "Included"
+    },
+    {
+      feature: "Warning-specific profile image overrides",
       free: "-",
       plus: "Included"
     },
@@ -267,7 +279,7 @@ export const homeyPlugin: PluginRecord = {
   ],
   faqHighlights: [
     {
-      copy: "Group, family-only, guest-only, or one named person.",
+      copy: "Group, family-only, guest-only, or one named person with an optional profile image.",
       emoji: "@",
       title: "Family & Guests"
     },
@@ -287,7 +299,7 @@ export const homeyPlugin: PluginRecord = {
       title: "Warning states"
     }
   ],
-  faqIntro: "Detailed setup, device, Family & Guests, graph, warning, and troubleshooting guides for every Homey Pro info button on Stream Deck.",
+  faqIntro: "Detailed setup, device, Family & Guests, graph, custom profile image, warning, and troubleshooting guides for every Homey Pro info button on Stream Deck.",
   helpTopicMap: {
     actions: "faq-action-mode",
     display: "faq-display-template",
@@ -298,7 +310,7 @@ export const homeyPlugin: PluginRecord = {
   },
   icon: "/assets/homey/free-icon.png",
   id: "homey-pro-control",
-  listDescription: "Live Homey tiles for values, Family & Guests presence, toggles, graph backgrounds, warnings, and room launchers.",
+  listDescription: "Live Homey tiles for values, Family & Guests presence, graph backgrounds, custom person images, warnings, and room launchers.",
   name: "Homey Pro",
   plusIcon: "/assets/homey/plus-icon.png",
   previewTiles: [
@@ -307,8 +319,8 @@ export const homeyPlugin: PluginRecord = {
       label: "Graph background"
     },
     {
-      image: "/assets/homey/generated/homey-family-guests.svg",
-      label: "Family & Guests"
+      image: "/assets/homey/generated/homey-family-avatar.svg",
+      label: "Profile image"
     },
     {
       image: "/assets/homey/generated/homey-room-launcher.svg",
@@ -325,6 +337,29 @@ export const homeyPlugin: PluginRecord = {
       label: "Text badge"
     }
   ],
+  releaseNotes: [
+    {
+      copy: "Shared polling no longer forces reconnect loops, and the Homey catalog cache is isolated from realtime internals so tiles stay stable for longer sessions.",
+      emoji: "1",
+      title: "Runtime hardening"
+    },
+    {
+      copy: "Family & Guests now works as a real dashboard surface for both group and person views, with clearer person-focused presentation.",
+      emoji: "2",
+      title: "Presence tiles"
+    },
+    {
+      copy: "Plus can show a Homey avatar or a local custom image path on person tiles, including radius, border, background, and warning-specific overrides.",
+      emoji: "3",
+      title: "Profile images"
+    },
+    {
+      copy: "Graph backgrounds, custom ranges, text badges, and warning graph overrides are now presented as a first-class part of the product instead of hidden extras.",
+      emoji: "4",
+      title: "Dashboard tiles"
+    }
+  ],
+  releaseVersion: "1.2.0",
   salesHighlights: [
     {
       copy: "See power, climate, door, and status values directly on the key.",
@@ -342,9 +377,9 @@ export const homeyPlugin: PluginRecord = {
       title: "Graph backgrounds"
     },
     {
-      copy: "Use text badges and warning-specific graph styling when a graph needs to stay visible without killing legibility.",
-      emoji: "#",
-      title: "Readable overlays"
+      copy: "Use a Homey avatar or a local custom image path on person tiles so one glance tells you exactly who the tile represents.",
+      emoji: "O",
+      title: "Custom profile images"
     },
     {
       copy: "Turn important states into clear alarm tiles that grab your eye when something changes.",
@@ -364,7 +399,7 @@ export const homeyPlugin: PluginRecord = {
     }
   ],
   salesIntro:
-    "A focused Stream Deck plugin for Homey Pro. Use it for live values, Family & Guests presence, graph-backed tiles, readable overlays, warnings, and room launchers without turning the support site into a marketplace wall.",
+    "A focused Stream Deck plugin for Homey Pro. Use it for live values, Family & Guests presence, graph-backed tiles, local custom profile images, warnings, and room launchers. This release also hardens the Homey connection path so the deck stays useful instead of noisy.",
   setupHighlights: [
     {
       copy: "Add your local Homey address and a Personal Access Token.",
@@ -382,18 +417,22 @@ export const homeyPlugin: PluginRecord = {
       title: "3. Choose behavior"
     },
     {
-      copy: "Finish with title text, units, icons, graph backgrounds, text badges, and warning rules.",
+      copy: "Finish with title text, units, icons, graph backgrounds, profile images, text badges, and warning rules.",
       emoji: "4",
       title: "4. Make it yours"
     }
   ],
   showcaseBoards: [
     {
-      caption: "Live values, graph backgrounds, targets, warning states, and readable tile labels on one deck.",
+      caption: "Live values, presence, profile images, graph backgrounds, warning states, and room launchers on one deck.",
       tiles: [
         {
           image: "/assets/homey/generated/homey-family-guests.svg",
           label: "Presence"
+        },
+        {
+          image: "/assets/homey/generated/homey-family-avatar.svg",
+          label: "Person avatar"
         },
         {
           image: "/assets/homey/generated/homey-energy-live.svg",
@@ -418,8 +457,8 @@ export const homeyPlugin: PluginRecord = {
           label: "Text badge"
         },
         {
-          image: "/assets/homey/generated/homey-door-status.svg",
-          label: "Door status"
+          image: "/assets/homey/generated/homey-room-launcher.svg",
+          label: "Room launcher"
         }
       ],
       title: "Homey Pro deck"

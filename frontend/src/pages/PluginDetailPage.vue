@@ -94,6 +94,32 @@
     </section>
 
     <section class="sales-grid">
+      <article class="info-panel release-panel comparison-panel">
+        <div class="release-panel-head">
+          <span class="comparison-summary-badge">Release {{ plugin.releaseVersion }}</span>
+          <h2 class="panel-title">What changed in this update</h2>
+          <p class="comparison-intro">
+            This store update focuses on the parts that most directly affect daily use:
+            connection stability, clearer presence tiles, richer Plus dashboards, and marketing
+            that now matches the actual product.
+          </p>
+        </div>
+
+        <div class="release-note-grid">
+          <article
+            v-for="item in plugin.releaseNotes"
+            :key="item.title"
+            class="release-note-card"
+          >
+            <span class="release-note-emoji" aria-hidden="true">{{ item.emoji }}</span>
+            <div>
+              <strong class="release-note-title">{{ item.title }}</strong>
+              <p class="release-note-copy">{{ item.copy }}</p>
+            </div>
+          </article>
+        </div>
+      </article>
+
       <article class="info-panel">
         <h2 class="panel-title">What it does</h2>
         <div class="info-card-grid">
