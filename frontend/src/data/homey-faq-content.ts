@@ -169,7 +169,7 @@ export const homeyFamilyGuestsFaqHtml = String.raw`
         </figcaption>
       </figure>
       <figure class="faq-gallery-card">
-        <img alt="Homey Family and Guests person tile with a profile image" loading="lazy" src="/assets/homey/generated/homey-family-avatar.svg" />
+        <img alt="Homey Family and Guests person tile with a profile image" loading="lazy" src="/assets/homey/generated/homey-family-avatar-bob.svg" />
         <figcaption>
           <strong>Person tile</strong>
           <span>Plus can show a Homey avatar, a remote image URL, or an imported local image path on one named person tile.</span>

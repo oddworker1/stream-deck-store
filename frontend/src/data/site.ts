@@ -110,7 +110,7 @@ export const homeyPlugin: PluginRecord = {
     },
     {
       copy: "Use Homey avatars, remote image URLs, or imported local image paths on one named Family & Guests tile, then style the frame to fit the deck.",
-      image: "/assets/homey/generated/homey-family-avatar.svg",
+      image: "/assets/homey/generated/homey-family-avatar-bob.svg",
       tag: "Plus",
       title: "Profile images"
     }
@@ -327,7 +327,7 @@ export const homeyPlugin: PluginRecord = {
       label: "Graph background"
     },
     {
-      image: "/assets/homey/generated/homey-family-avatar.svg",
+      image: "/assets/homey/generated/homey-family-avatar-bob.svg",
       label: "Profile image"
     },
     {
@@ -439,7 +439,7 @@ export const homeyPlugin: PluginRecord = {
           label: "Presence"
         },
         {
-          image: "/assets/homey/generated/homey-family-avatar.svg",
+          image: "/assets/homey/generated/homey-family-avatar-bob.svg",
           label: "Person avatar"
         },
         {

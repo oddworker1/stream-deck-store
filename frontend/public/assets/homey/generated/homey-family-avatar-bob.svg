@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144">
+  <rect x="0" y="0" width="144" height="144" rx="24" fill="#0b1117"/>
+  <rect x="10" y="10" width="124" height="124" rx="20" fill="#101a23" stroke="rgba(255,255,255,0.06)" stroke-width="1.2"/>
+  <circle cx="118" cy="26" r="9" fill="#d6ffd1"/>
+  <defs>
+    <linearGradient id="avatar-bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#6ee7f9"/>
+      <stop offset="100%" stop-color="#4f6fff"/>
+    </linearGradient>
+    <clipPath id="profile-image-clip">
+      <rect x="48" y="22" width="48" height="48" rx="24"/>
+    </clipPath>
+  </defs>
+  <rect x="44" y="18" width="56" height="56" rx="28" fill="#0a141d" stroke="#d7edf8" stroke-width="1.6"/>
+  <g clip-path="url(#profile-image-clip)">
+    <rect x="48" y="22" width="48" height="48" fill="url(#avatar-bg)"/>
+    <circle cx="72" cy="42" r="9" fill="#f4f8fb"/>
+    <path d="M56 70c2.1-12 8.4-18 16-18s13.9 6 16 18" fill="#f4f8fb"/>
+    <text x="72" y="65" fill="#0a1621" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" text-anchor="middle">BOB</text>
+  </g>
+  <g font-family="Segoe UI, IBM Plex Sans, sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#f8fbff">
+    <text x="72" y="93">Bob</text>
+    <text x="72" y="118">HOME</text>
+  </g>
+</svg>
