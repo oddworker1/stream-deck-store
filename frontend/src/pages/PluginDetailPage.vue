@@ -7,7 +7,7 @@
         <div class="space-y-5">
           <div class="flex items-center gap-3">
             <img :src="plugin.icon" :alt="plugin.name" class="h-[4.5rem] w-[4.5rem] rounded-[22px]" />
-            <img :src="plugin.plusIcon" alt="" class="h-14 w-14 rounded-[18px]" />
+            <img :src="plugin.plusIcon" alt="" class="h-[4.5rem] w-[4.5rem] rounded-[22px]" />
           </div>
 
           <div class="flex flex-wrap gap-2">
@@ -78,12 +78,6 @@
                       :src="tile.overlayImage"
                       class="streamdeck-key-image streamdeck-key-alert-image"
                     />
-                    <div class="streamdeck-key-meta">
-                      <span v-if="tile.alertDetail" class="streamdeck-key-kicker">
-                        {{ tile.alertDetail }}
-                      </span>
-                      <strong class="streamdeck-key-label">{{ tile.label }}</strong>
-                    </div>
                   </div>
                 </div>
               </div>
