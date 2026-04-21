@@ -22,11 +22,11 @@
 
         <section class="faq-status-panel" aria-label="Current FAQ coverage">
           <div class="faq-status-copy">
-            <strong>Updated for Homey Pro 1.2.0</strong>
+            <strong>Updated for Homey Pro 1.2.1</strong>
             <p>
               This FAQ now covers the latest Family & Guests tiles, graph backgrounds,
-              text badges, local custom image paths for presence tiles, warning graph overrides,
-              and the current room-launcher setup.
+              text badges, Homey avatars, remote and local custom image paths for presence tiles,
+              warning graph overrides, fresh live-value polling, and the current room-launcher setup.
             </p>
           </div>
 

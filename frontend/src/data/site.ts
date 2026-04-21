@@ -8,6 +8,7 @@ import {
   homeyEmptyCatalogFaqHtml,
   homeyFamilyGuestsFaqHtml,
   homeyGraphBadgeFaqHtml,
+  homeyLiveValueFreshnessFaqHtml,
   homeySecondValueFaqHtml,
   homeySelectDeviceFaqHtml,
   homeyTitleTemplateFaqHtml,
@@ -108,7 +109,7 @@ export const homeyPlugin: PluginRecord = {
       title: "Warning overrides"
     },
     {
-      copy: "Use Homey avatars or a local custom image path on one named Family & Guests tile, then style the frame to fit the deck.",
+      copy: "Use Homey avatars, remote image URLs, or imported local image paths on one named Family & Guests tile, then style the frame to fit the deck.",
       image: "/assets/homey/generated/homey-family-avatar.svg",
       tag: "Plus",
       title: "Profile images"
@@ -151,7 +152,7 @@ export const homeyPlugin: PluginRecord = {
       plus: "Included"
     },
     {
-      feature: "Custom profile images on Family & Guests person tiles",
+      feature: "Homey avatars, remote image URLs, and imported local profile images",
       free: "-",
       plus: "Included"
     },
@@ -205,6 +206,13 @@ export const homeyPlugin: PluginRecord = {
       answerHtml: homeyFamilyGuestsFaqHtml,
       id: "faq-family-guests",
       question: "How do Family & Guests tiles work?"
+    },
+    {
+      answer:
+        "Version 1.2.1 bypasses stale Homey device cache during shared polling, so live values and negative solar export readings stay aligned with Homey.",
+      answerHtml: homeyLiveValueFreshnessFaqHtml,
+      id: "faq-live-values",
+      question: "Why should power, solar, or graph values now stay fresh?"
     },
     {
       answer:
@@ -339,9 +347,9 @@ export const homeyPlugin: PluginRecord = {
   ],
   releaseNotes: [
     {
-      copy: "Shared polling no longer forces reconnect loops, and the Homey catalog cache is isolated from realtime internals so tiles stay stable for longer sessions.",
+      copy: "Shared polling now bypasses the stale Homey SDK device cache, so live sensor tiles keep negative solar export values and fast-changing power readings aligned with Homey.",
       emoji: "1",
-      title: "Runtime hardening"
+      title: "Fresh live values"
     },
     {
       copy: "Family & Guests now works as a real dashboard surface for both group and person views, with clearer person-focused presentation.",
@@ -349,7 +357,7 @@ export const homeyPlugin: PluginRecord = {
       title: "Presence tiles"
     },
     {
-      copy: "Plus can show a Homey avatar or a local custom image path on person tiles, including radius, border, background, and warning-specific overrides.",
+      copy: "Plus can show a Homey avatar, a remote image URL, or an imported local image path on person tiles, including radius, border, background, and warning-specific overrides.",
       emoji: "3",
       title: "Profile images"
     },
@@ -359,7 +367,7 @@ export const homeyPlugin: PluginRecord = {
       title: "Dashboard tiles"
     }
   ],
-  releaseVersion: "1.2.0",
+  releaseVersion: "1.2.1",
   salesHighlights: [
     {
       copy: "See power, climate, door, and status values directly on the key.",
@@ -377,7 +385,7 @@ export const homeyPlugin: PluginRecord = {
       title: "Graph backgrounds"
     },
     {
-      copy: "Use a Homey avatar or a local custom image path on person tiles so one glance tells you exactly who the tile represents.",
+      copy: "Use a Homey avatar, a remote image URL, or an imported local image path on person tiles so one glance tells you exactly who the tile represents.",
       emoji: "O",
       title: "Custom profile images"
     },
@@ -399,7 +407,7 @@ export const homeyPlugin: PluginRecord = {
     }
   ],
   salesIntro:
-    "A focused Stream Deck plugin for Homey Pro. Use it for live values, Family & Guests presence, graph-backed tiles, local custom profile images, warnings, and room launchers. This release also hardens the Homey connection path so the deck stays useful instead of noisy.",
+    "A focused Stream Deck plugin for Homey Pro. Use it for fresh live values, Family & Guests presence, graph-backed tiles, custom profile images, warnings, and room launchers. Version 1.2.1 also keeps solar/export power readings aligned with Homey by avoiding stale device cache reads.",
   setupHighlights: [
     {
       copy: "Add your local Homey address and a Personal Access Token.",

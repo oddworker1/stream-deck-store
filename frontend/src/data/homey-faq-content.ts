@@ -74,6 +74,40 @@ export const homeyEmptyCatalogFaqHtml = String.raw`
   </div>
 `;
 
+export const homeyLiveValueFreshnessFaqHtml = String.raw`
+  <div class="faq-guide">
+    <p class="faq-intro-copy">Live value tiles read the current Homey capability value and the shared catalog. Version 1.2.1 also bypasses the Homey SDK device cache during shared polling so fast-changing power values do not get stuck behind stale data.</p>
+    <div class="faq-badge-row">
+      <span class="faq-badge">Fresh device polling</span>
+      <span class="faq-badge">Negative values supported</span>
+      <span class="faq-badge">Solar export friendly</span>
+      <span class="faq-badge">Realtime + fallback polling</span>
+    </div>
+    <div class="faq-grid">
+      <section class="faq-card">
+        <h3>What this fixes</h3>
+        <ul class="faq-checklist">
+          <li>Solar or grid meters can show negative watt values such as <code>-427 W</code> when you export power.</li>
+          <li>The tile should follow the same capability value that Homey exposes now, not an old cached reading.</li>
+          <li>Graph samples use the selected primary or secondary capability, so the graph follows the value you actually picked.</li>
+        </ul>
+      </section>
+      <section class="faq-card">
+        <h3>If the value still looks wrong</h3>
+        <ol class="faq-steps">
+          <li>Confirm the selected capability is the exact Homey value you want, for example <code>measure_power</code>.</li>
+          <li>Use <strong>Refresh Data</strong> once to force a fresh catalog read.</li>
+          <li>Open <strong>Debug</strong> and copy a snapshot if Homey and Stream Deck still disagree.</li>
+        </ol>
+      </section>
+    </div>
+    <div class="faq-callout">
+      <strong>Production check</strong>
+      <span>The current production candidate was verified against a real Homey power meter where the catalog value and direct capability endpoint both returned the same negative export value.</span>
+    </div>
+  </div>
+`;
+
 export const homeySelectDeviceFaqHtml = String.raw`
   <div class="faq-guide">
     <p class="faq-intro-copy">Pick the device by outcome first, then choose the capability that actually represents the state you want on the key.</p>
@@ -138,7 +172,7 @@ export const homeyFamilyGuestsFaqHtml = String.raw`
         <img alt="Homey Family and Guests person tile with a profile image" loading="lazy" src="/assets/homey/generated/homey-family-avatar.svg" />
         <figcaption>
           <strong>Person tile</strong>
-          <span>Plus can show a Homey avatar or a local custom image path on one named person tile.</span>
+          <span>Plus can show a Homey avatar, a remote image URL, or an imported local image path on one named person tile.</span>
         </figcaption>
       </figure>
     </div>
@@ -168,7 +202,8 @@ export const homeyFamilyGuestsFaqHtml = String.raw`
         <ul class="faq-checklist">
           <li>Turn on <strong>Profile Image</strong> in Display when the tile is in <strong>Person</strong> mode.</li>
           <li>Choose <strong>Homey avatar</strong> to use the avatar stored on the user in Homey.</li>
-          <li>Choose <strong>Custom image</strong> and paste a full local path such as <code>C:\Users\you\Pictures\person.png</code>.</li>
+          <li>Choose <strong>Custom image</strong> and paste a remote <code>https://...</code> image URL or a full local path such as <code>C:\Users\you\Pictures\person.png</code>.</li>
+          <li>Local files are imported into plugin storage; remote URLs stay linked directly.</li>
           <li>Adjust radius, border, and background so the person tile matches the rest of the deck.</li>
         </ul>
       </section>

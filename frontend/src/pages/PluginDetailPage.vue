@@ -100,7 +100,7 @@
           <h2 class="panel-title">What changed in this update</h2>
           <p class="comparison-intro">
             This store update focuses on the parts that most directly affect daily use:
-            connection stability, clearer presence tiles, richer Plus dashboards, and marketing
+            fresh live values, clearer presence tiles, richer Plus dashboards, and marketing
             that now matches the actual product.
           </p>
         </div>
@@ -168,12 +168,12 @@
             </h3>
             <p class="comparison-summary-copy">
               Plus is where the visual control lives: trend graphs, readable text plates,
-              warning-specific graph styling, second values, and room launchers.
+              warning-specific graph styling, profile images, second values, and room launchers.
             </p>
 
             <div class="comparison-summary-list" aria-label="Plus feature highlights">
               <span
-                v-for="row in plugin.comparisonRows.slice(0, 6)"
+                v-for="row in plugin.comparisonRows.slice(0, 8)"
                 :key="row.feature"
                 class="comparison-summary-pill"
               >
